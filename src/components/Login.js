@@ -1,9 +1,11 @@
 import React from "react";
-
+import NewAccount from "./NewAccount.js"
 const Login = () => {
 
     return(
-        <div></div>
+        <div>
+            <NewAccount/>
+        </div>
     );
 }
 export default Login;

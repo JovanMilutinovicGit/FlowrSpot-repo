@@ -1,7 +1,6 @@
 import  React from "react";
 import  ReactDOM  from "react-dom";
-
-const NewAccount = (props) => {
+const NewAccount = props => {
     return ReactDOM.createPortal(
     <div >
         <input/>
