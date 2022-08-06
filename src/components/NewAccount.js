@@ -1,14 +1,11 @@
 import  React from "react";
 import  ReactDOM  from "react-dom";
+import Modal from "./Modal.js"
 const NewAccount = props => {
-    return ReactDOM.createPortal(
+    return(
     <div >
-        <input/>
-        <input/>
-        <input/>
-        <input/>
-    </div>,
-    document.querySelector('#NewAccount')
+        <Modal/>
+    </div>
     );
 };
 export default NewAccount;

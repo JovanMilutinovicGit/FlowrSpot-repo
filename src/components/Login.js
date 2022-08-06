@@ -1,10 +1,10 @@
 import React from "react";
-import NewAccount from "./NewAccount.js"
+import Modal from "./Modal.js"
 const Login = () => {
 
     return(
         <div>
-            <NewAccount/>
+        <Modal/>
         </div>
     );
 }

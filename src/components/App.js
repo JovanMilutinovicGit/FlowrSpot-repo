@@ -5,6 +5,7 @@ import Favorites from "./Favorites.js"
 import Login from "./Login.js";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import NewAccount from "./NewAccount.js";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route exact path='/latestSightings' element={<LatestSightings/>}/>
           <Route exact path='/favorites' element={<Favorites/>}/>
           <Route exact path='/login' element={<Login/>}/>
+          <Route exact path='newAccount' element={<NewAccount/>}/>
         </Routes>
       </Router>
     </div>

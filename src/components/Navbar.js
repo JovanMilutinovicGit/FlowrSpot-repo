@@ -15,7 +15,7 @@ const Navbar = () => {
       <Link to = '/latestSightings' className='link'>Latest Sightings</Link>
       <Link to = '/favorites' className='link'>Favorites</Link>
       <Link to = '/login' id="login">Login</Link>
-      <button id="button">New Account</button>
+      <Link to = '/newAccount'><button id="button">New Account</button></Link>
       </div>
     </div>
   );

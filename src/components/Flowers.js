@@ -6,7 +6,7 @@ const Flowers = () => {
     return(
         <div>
         <div className="hero-section">
-           
+           <img src={heroImage}/>
            <div className="discover">
             <h2>Discover flowers around you</h2>
             <p>Explore between more than 8.427 sightings</p>
