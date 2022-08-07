@@ -3,3 +3,85 @@
     padding: 0;
     box-sizing: border-box;
 }
+.form h2 {
+    text-align: center;
+    color: black;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.form {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: 33%;
+    padding: 20px;
+    background-color: white;
+}
+.form input {
+    border-radius:0px ;
+    background-color: #F5F6F7;
+    margin-bottom: 10px;
+}
+.nameAndSurname{
+    display: flex;
+    justify-content: space-between;
+}
+.nameAndSurname  input {
+    width:49%;
+    border: 2px gray;
+    justify-content: space-between;
+}
+.others {
+    display: flex;
+    flex-direction: column;
+}
+.others input {
+    border: 2px gray;
+    width: 100%;
+}
+
+.btn button {
+    background-color: #EAABA2;
+    color: white;
+    width: 100%;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    margin-top: 40px;
+    opacity: 0.5; 
+    cursor: pointer;
+}
+
+/*-------------Login form------------------*/
+
+.formLogin{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: 33%;
+    padding: 20px;
+    background-color: white;
+}
+.formLogin h2 {
+    text-align: center;
+    color: black;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.formLogin .emailAndPass input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 2px gray;
+    border-radius:0px ;
+    background-color: #F5F6F7;
+    margin-bottom: 10px;
+}

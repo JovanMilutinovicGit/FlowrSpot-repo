@@ -1,9 +1,9 @@
 .card {
-    width: 22%;
-    height: 60vh;
+    width: 20%;
+    height: 50vh;
     position: relative;
     border-radius: 3px;
-    margin: 5px;
+    margin: 10px;
 }
 .card img {
     width: 100%;
@@ -67,3 +67,24 @@ h2 {
     background-color:#EAA79E;
     color: white;
 }
+
+@media screen and (max-width: 768px){
+    .card {
+    width: 30%;
+    height: 300px;
+    }
+    .sightings p {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 421px){
+    .card {
+    width: 50%;
+    height: 300px;
+    }
+    .sightings p {
+        font-size: 10px;
+    }
+}
+
+

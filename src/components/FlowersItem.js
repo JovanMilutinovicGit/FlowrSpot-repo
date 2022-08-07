@@ -1,5 +1,5 @@
 import React from "react";
-import cardImage from "../assets/cardImage.jpg"
+import cardImage from "../assets/cardImage.png"
 import "./FlowersItem.css"
 
 const FlowersItem = () => {

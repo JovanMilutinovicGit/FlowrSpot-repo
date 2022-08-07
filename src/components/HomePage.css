@@ -11,6 +11,7 @@
 .hero-section img {
     width: 100%;
     margin-top: 20px;
+    height: 100%;
 }
 .discover {
     position: absolute;
@@ -48,7 +49,7 @@ input {
     position: absolute;
     color: #EAA79E;
     right: 0;
-    padding: 20px;
+    padding: 10px;
     cursor: pointer;
 }
 
