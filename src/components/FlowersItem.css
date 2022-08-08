@@ -1,9 +1,9 @@
 .card {
-    width: 20%;
-    height: 50vh;
+    width: 280px;
+    height: 350px;
     position: relative;
     border-radius: 3px;
-    margin: 10px;
+    margin: 20px;
 }
 .card img {
     width: 100%;
@@ -70,17 +70,16 @@ h2 {
 
 @media screen and (max-width: 768px){
     .card {
-    width: 30%;
-    height: 300px;
-    }
-    .sightings p {
-        font-size: 12px;
+    width: 200;
+    height: 290px;
+    margin: 15px 17px
     }
 }
 @media screen and (max-width: 421px){
     .card {
     width: 50%;
     height: 300px;
+    margin: 17px;
     }
     .sightings p {
         font-size: 10px;

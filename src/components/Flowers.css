@@ -1,0 +1,38 @@
+.flowers {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-top: 70px;
+}
+.discoverSearch {
+    position: absolute;
+    text-align: center;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.form-inputSearch {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-inputSearch input {
+    display: block;
+    width: 350px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    padding: 20px;
+}
+.iconSearch {
+    position: absolute;
+    color: #EAA79E;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+.list {
+    display: block;
+}

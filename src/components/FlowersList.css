@@ -1,14 +1,10 @@
 .FlowersList {
     display:flex;
-    flex-flow: row wrap;
     justify-content: center;
+    flex-flow: row wrap;
     margin-top:60px;
     width: 100%;
 }
 
-@media screen and (max-width: 830px){
-    .FlowersList {
-        
-        
-    }
-}
+
+
