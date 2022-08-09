@@ -1,5 +1,4 @@
 import React from "react";
-import NewAccount from "./NewAccount.js";
 
 const Favorites = () => {
 return (

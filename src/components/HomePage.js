@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FlowersList from "./FlowersList";
 import './HomePage.css'
-import NewAccount from "./NewAccount.js"
+import Modal from "./Modal.js"
 import heroImage from "../assets/heroImage.png";
 const HomePage = () => {
 

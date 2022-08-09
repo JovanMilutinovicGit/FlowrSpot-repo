@@ -1,0 +1,37 @@
+.heroDetail {
+    width: 100%;
+    position: relative;
+}
+#imgHero {
+    width: 100%;
+}
+#imgFlower {
+    position: absolute;
+    top: 70px;
+    left: 20px;
+}
+.descriptionDetail {
+    position: relative;
+    top:25px;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    margin-top: 40px;
+}
+
+.leftSideDescription {
+    width: 20%;
+}
+
+.rightSideDescription {
+    width: 80%;
+    text-align: justify;
+    margin-left: 70px;
+}
+.rightSideDescription p{
+    width: 670px;
+    font-size: 13px;
+}

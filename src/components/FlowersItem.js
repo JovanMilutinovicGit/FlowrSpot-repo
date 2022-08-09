@@ -1,12 +1,13 @@
 import React from "react";
 import cardImage from "../assets/cardImage.png"
 import "./FlowersItem.css"
+import {Link} from 'react-router-dom';
 
 const FlowersItem = () => {
 return (
     <div className="card">
     <div>
-    <img src={cardImage}/>
+    <Link to='/flowerDetail'><img src={cardImage}/></Link>
     </div>
     <div className="description">
     <h2>Violet flower</h2>
