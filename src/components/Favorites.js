@@ -1,11 +1,11 @@
 import React from "react";
-
+import FlowersList from "./FlowersList";
 const Favorites = () => {
-return (
+  return (
     <div>
-       Favorites
+      <FlowersList />
     </div>
-);
-}
+  );
+};
 
 export default Favorites;

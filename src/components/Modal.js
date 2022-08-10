@@ -1,22 +1,16 @@
-import  React from "react";
-import  ReactDOM  from "react-dom";
-import "./Modal.css"
-const Modal = ({children}) => {
-    return ReactDOM.createPortal(
+import React from "react";
+import "./Modal.css";
+const Modal = ({ children }) => {
+  return (
     <div>
-        <Layout/>
-        <div>
-        {children}
-        </div>
-    </div>,
-    document.querySelector('#modal')
-    );
+      <Layout />
+      <div>{children}</div>
+    </div>
+  );
 };
 
-const Layout = () =>{
-    return(
-        <div className="backGround"></div>
-    );
-}
+const Layout = () => {
+  return <div className="backGround"></div>;
+};
 
 export default Modal;
