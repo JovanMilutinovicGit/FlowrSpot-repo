@@ -1,10 +1,7 @@
 .FlowersList {
-    display:flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    margin-top:60px;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  margin-top: 60px;
+  width: 100%;
 }
-
-
-

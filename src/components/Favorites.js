@@ -1,12 +1,11 @@
 import React from "react";
-import NewAccount from "./NewAccount.js";
-
+import FlowersList from "./FlowersList";
 const Favorites = () => {
-return (
+  return (
     <div>
-       Favorites
+      <FlowersList />
     </div>
-);
-}
+  );
+};
 
 export default Favorites;
