@@ -1,0 +1,87 @@
+.user {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.userContent {
+  width: 96%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.imgAndBtn {
+  display: flex;
+  justify-content: space-between;
+  width: 96%;
+  margin: 70px;
+}
+
+.leftside {
+  display: flex;
+  width: 40%;
+}
+
+.profileImg {
+  display: flex;
+  justify-content: center;
+}
+
+.username {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+.span1 {
+  font-size: 25px;
+  font-family: "ubuntu";
+}
+.span2 {
+  font-size: 13px;
+  font-family: "ubuntu";
+  color: #949ea0;
+}
+
+.btnReport {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imgAndBtn .button {
+  width: 10%;
+}
+
+.listCard {
+  width: 100%;
+}
+@media screen and (max-width: 420px) {
+  .leftside {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+  }
+  .profileImg {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+  .username {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+  }
+  .imgAndBtn .button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 110px;
+    height: 80px;
+  }
+  .profileImg img {
+    width: 80px;
+    height: 80px;
+  }
+}

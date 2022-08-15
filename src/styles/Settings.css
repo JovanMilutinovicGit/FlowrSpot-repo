@@ -1,0 +1,89 @@
+.settings {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 33%;
+  padding: 5px;
+  background-color: white;
+}
+.settings .close {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close i {
+  cursor: pointer;
+  color: #949ea0;
+}
+
+.window {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.titleSettings {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+}
+
+.titleSettings h3 {
+  font-size: 20px;
+}
+
+.titleSettings i {
+  margin-left: 20px;
+  color: #949ea0;
+}
+
+.turnNotification {
+  width: 70%;
+}
+
+.allSettings {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.allSettings-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+}
+
+.allSettings-content div {
+  padding: 30px;
+}
+
+.turnNotification h4 {
+  font-size: 14px;
+}
+.turnNotification {
+  width: 100%;
+  border-bottom: 1px solid #e8e9ed;
+}
+
+.hintMess {
+  font-size: 14px;
+  color: #334144;
+}
+
+.saveBtn {
+  display: flex;
+  justify-content: center;
+}
+
+.saveBtn button {
+  width: 150px;
+  height: 50px;
+  background-color: #eaa79e;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
