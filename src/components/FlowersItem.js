@@ -1,6 +1,6 @@
 import React from "react";
 import cardImage from "../assets/cardImage.png";
-import "./FlowersItem.css";
+import "../styles/FlowersItem.css";
 import { Link } from "react-router-dom";
 
 const FlowersItem = () => {
@@ -12,11 +12,13 @@ const FlowersItem = () => {
         </Link>
       </div>
       <div className="description">
-        <h2>Violet flower</h2>
+        <h2>
+          <span>Ballon flower</span>
+        </h2>
         <h6 className="descriptionFlower">Platycodon grandiflorus</h6>
-      </div>
-      <div className="sightings">
-        <p>127 sightings</p>
+        <div className="sightings">
+          <p>127 sightings</p>
+        </div>
       </div>
       <div className="favorite">
         <span className="star">

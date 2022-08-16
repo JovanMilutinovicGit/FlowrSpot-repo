@@ -1,0 +1,87 @@
+.cardDetail {
+  width: 100%;
+  height: 40%;
+  padding: 10px;
+}
+
+.imageAndName {
+  display: flex;
+  width: 100%;
+}
+
+.cardDetail .imageUser {
+  display: flex;
+  justify-content: center;
+}
+
+.nameUser {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 5px;
+  width: 100%;
+}
+
+.nameUser span {
+  font-size: 10px;
+}
+
+.s1 {
+  font-size: 15px;
+  font-family: "ubuntu";
+  font-weight: bold;
+}
+
+.s2 {
+  font-size: 12px;
+  font-style: italic;
+  color: #949ea0;
+}
+
+.descOfFlower {
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e9ed;
+}
+
+.descOfFlower p {
+  font-size: 12px;
+  text-align: justify;
+  color: #949ea0;
+}
+
+.commentsAndFav {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+}
+.comments {
+  display: flex;
+  cursor: pointer;
+  color: #949ea0;
+}
+
+.comments span,
+.favorites span {
+  font-size: 12px;
+}
+
+.com {
+  display: flex;
+  text-decoration: none;
+  color: #949ea0;
+}
+.favorites {
+  display: flex;
+  color: #949ea0;
+}
+
+@media screen and (max-width: 420px) {
+  .cardDetail {
+    width: 90%;
+    margin-top: 1px;
+    margin-left: 3px;
+  }
+}

@@ -1,0 +1,35 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #e8e9ed;
+  margin-bottom: 20px;
+}
+
+.userAndTimePost {
+  display: flex;
+}
+.typeAndTimePost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  font-family: "ubuntu";
+}
+
+.typeFlowr {
+  font-size: 15px;
+  font-weight: bold;
+  color: #334144;
+}
+.time {
+  font-size: 12px;
+}
+.commentContent {
+  margin-bottom: 20px;
+}
+
+.commentContent p {
+  font-size: 13px;
+  font-family: "ubuntu";
+  text-align: justify;
+}

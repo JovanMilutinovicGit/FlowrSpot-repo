@@ -1,0 +1,16 @@
+.flowers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.discoverSearch {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+
+@media screen and (max-width: 420px) {
+  .discoverSearch {
+    width: 70%;
+  }
+}

@@ -1,0 +1,15 @@
+.FlowersList {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  margin-top: 60px;
+  width: 100%;
+}
+
+@media screen and (max-width: 420px) {
+  .FlowersList {
+    margin-top: 40px;
+    justify-content: center;
+    flex-flow: row wrap;
+  }
+}

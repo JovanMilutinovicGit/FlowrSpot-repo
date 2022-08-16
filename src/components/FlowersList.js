@@ -1,6 +1,6 @@
 import React from "react";
 import FlowersItem from "./FlowersItem.js";
-import "./FlowersList.css";
+import "../styles/FlowersList.css";
 const FlowersList = () => {
   return (
     <div className="FlowersList">
