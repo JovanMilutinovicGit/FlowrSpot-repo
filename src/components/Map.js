@@ -12,7 +12,6 @@ const Map = () => {
       ) : (
         <div className="map">
           <ShowMap />
-          <Button name={"View On Google Maps"} />
         </div>
       )}
     </div>

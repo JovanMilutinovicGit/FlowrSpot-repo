@@ -2,9 +2,29 @@
   width: 100%;
 }
 .mapView {
+  position: relative;
   width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(249, 249, 249, 0.0001) 0%,
+    #f9f9f9 100%
+  );
 }
-
+.btnViewAndReport {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  right: 15px;
+  bottom: 70px;
+  width: 340px;
+}
+.btn-1 {
+  width: 200px;
+}
+.btn-2 {
+  width: 110px;
+}
 .commentSection {
   position: relative;
   display: flex;
@@ -121,6 +141,11 @@
 }
 
 @media screen and (max-width: 420px) {
+  .btnViewAndReport {
+    transform: translate(-50%, -50%);
+    top: 10%;
+    left: 50%;
+  }
   .commentSection-1 {
     display: flex;
     margin-top: 0px;

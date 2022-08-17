@@ -1,3 +1,9 @@
+.flowerDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .heroDetail {
   width: 100%;
   position: relative;
@@ -8,7 +14,7 @@
 #imgFlower {
   position: absolute;
   top: 70px;
-  left: 20px;
+  left: 28px;
 }
 
 .heroDetailRight {
@@ -19,7 +25,6 @@
   width: 50%;
   height: 90px;
 }
-
 .fav {
   display: flex;
 }
@@ -69,21 +74,23 @@
   font-family: "Ubuntu", sans-serif;
 }
 .descriptionDetail {
-  position: relative;
-  top: 25px;
-  left: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100px;
+  width: 96%;
   margin-top: 40px;
+  display: flex;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #e8e9ed;
 }
 .leftSideDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 20%;
 }
 .leftSideDescription p {
   font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  color: #949ea0;
+  line-height: 25px;
 }
 .rightSideDescription {
   width: 80%;
@@ -94,6 +101,13 @@
   width: 670px;
   font-size: 13px;
   font-family: "Ubuntu", sans-serif;
+  color: #949ea0;
+  line-height: 20px;
+}
+
+.listCards {
+  margin-top: 30px;
+  width: 100%;
 }
 
 @media screen and (max-width: 420px) {
@@ -109,41 +123,57 @@
     height: 350px;
     top: 0;
     left: 0;
-  }
-  .heroDetailRight .fav {
-    margin-bottom: 20px;
+    filter: brightness(70%);
   }
   .heroDetailRight {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 63%;
+    top: 56%;
     left: 10%;
     transform: none;
     width: 50%;
-    height: 150px;
+    height: 180px;
+  }
+
+  .fav span {
+    font-size: 12px;
   }
   .desc {
     margin-bottom: 20px;
+  }
+  .desc span {
+    font-weight: 300;
+    font-size: 35px;
+  }
+  .desc p {
+    font-size: 14px;
   }
   .descAndBtn {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: 0px;
+    width: 250px;
   }
   .btnAdd {
     width: 80%;
   }
   .descriptionDetail {
-    position: none;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 80%;
+    border-bottom: none;
+  }
+  .leftSideDescription {
     width: 100%;
-    height: 100px;
-    margin-top: 40px;
-    border: 2px solid red;
+    margin: 30px 0px;
+  }
+  .rightSideDescription {
+    margin: 0px;
+    width: 100%;
+  }
+  .rightSideDescription p {
+    width: 100%;
   }
 }

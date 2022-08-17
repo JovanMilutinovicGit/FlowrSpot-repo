@@ -45,3 +45,15 @@
   justify-content: center;
   margin-top: 20px;
 }
+
+@media screen and (max-width: 420px) {
+  .sightingDescAndBtn {
+    width: 94%;
+  }
+  .sightingDesc {
+    width: 50%;
+  }
+  .sightingBtn {
+    width: 40%;
+  }
+}

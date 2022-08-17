@@ -9,6 +9,9 @@ const NewSighting = () => {
     <div className="NewSighting">
       <div className="map">
         <Map />
+        <div className="buttonOnGoogleMaps">
+          <Button name={"View On Google Maps"} />
+        </div>
       </div>
       <div className="backgroundForm">
         <div className="formNewSighting">

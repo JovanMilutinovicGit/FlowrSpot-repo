@@ -4,11 +4,21 @@ import "../styles/SighttingDetail.css";
 import image from "../assets/cardImage.png";
 import CardDetail from "../components/CardDetail.js";
 import CommentsList from "../components/CommentsList.js";
+import ButtonReport from "../components/buttons/ButtonReport.js";
+import Button from "../components/buttons/Button.js";
 const SightingDetail = () => {
   return (
     <div className="sightingDetail">
       <div className="mapView">
         <Map />
+        <div className="btnViewAndReport">
+          <div className="btn-1">
+            <Button name={"View On Google Maps"} />
+          </div>
+          <div className="btn-2">
+            <ButtonReport />
+          </div>
+        </div>
       </div>
       <div className="commentSection">
         <div className="commentSection-1">

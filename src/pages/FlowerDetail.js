@@ -4,9 +4,10 @@ import flowerImage from "../assets/flowerImage.png";
 import { Link } from "react-router-dom";
 import Button from "../components/buttons/Button.js";
 import "../styles/FlowerDetail.css";
+import CardsList from "../components/CardsList";
 const FlowerDetail = () => {
   return (
-    <div>
+    <div className="flowerDetail">
       <div className="heroDetail">
         <img id="imgHero" src={heroDetail} />
         <img id="imgFlower" src={flowerImage} />
@@ -60,7 +61,9 @@ const FlowerDetail = () => {
           </p>
         </div>
       </div>
-      <div className="listCards"></div>
+      <div className="listCards">
+        <CardsList />
+      </div>
     </div>
   );
 };

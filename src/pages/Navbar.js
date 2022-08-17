@@ -3,8 +3,18 @@ import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import profileImage from "../assets/profile-holder.png";
 import "../styles/Navbar.css";
-
+import { useState } from "react";
 const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
+  const [icon, setIcon] = useState(true);
+
+  const iconFunc = () => {
+    if (icon) {
+      setIcon(false);
+    } else if (!icon) {
+      setIcon(true);
+    } else {
+    }
+  };
   return (
     <div className="navbar">
       <div className="leftSide">
@@ -13,40 +23,85 @@ const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
           FlowrSpot
         </Link>
       </div>
-      <div className="rightSide">
-        <Link to="/flowers" className="link">
-          Flowers
-        </Link>
-        <Link to="/latestSightings" className="link">
-          Latest Sightings
-        </Link>
-        <Link to="/favorites" className="link">
-          Favorites
-        </Link>
-        {logged ? (
-          <Link to="/user" className="link">
-            John Doe
-          </Link>
-        ) : (
-          <button id="login" onClick={(event) => openLogin(true)}>
-            Login
-          </button>
-        )}
-        {logged ? (
-          <img
-            src={profileImage}
-            width="30px"
+      <div className={icon ? "nav-menu-active" : "nav-menu"}>
+        <div className="items">
+          <Link
+            to="/flowers"
+            className="link"
             onClick={(e) => {
-              openProfile(true);
+              iconFunc(true);
             }}
-          />
-        ) : (
-          <button id="button" onClick={(event) => openModal(true)}>
-            New Account
-          </button>
-        )}
+          >
+            Flowers
+          </Link>
+          <Link
+            to="/latestSightings"
+            className="link"
+            onClick={(e) => {
+              iconFunc(true);
+            }}
+          >
+            Latest Sightings
+          </Link>
+          <Link
+            to="/favorites"
+            className="link"
+            onClick={(e) => {
+              iconFunc(true);
+            }}
+          >
+            Favorites
+          </Link>
+          {logged ? (
+            <Link
+              to="/user"
+              className="link"
+              onClick={(e) => {
+                iconFunc(true);
+              }}
+            >
+              John Doe
+            </Link>
+          ) : (
+            <Link
+              to=""
+              className="link"
+              onClick={(e) => {
+                openLogin(true);
+                iconFunc(true);
+              }}
+            >
+              Login
+            </Link>
+          )}
+          {logged ? (
+            <img
+              src={profileImage}
+              width="30px"
+              onClick={(e) => {
+                openProfile(true);
+                iconFunc(true);
+              }}
+            />
+          ) : (
+            <button
+              id="button"
+              onClick={(event) => {
+                openModal(true);
+                iconFunc(true);
+              }}
+            >
+              New Account
+            </button>
+          )}
+        </div>
       </div>
-      <i className="fa fa-bars"></i>
+      <i
+        className={icon ? "fa fa-bars" : "fa fa-times"}
+        onClick={(e) => {
+          iconFunc(true);
+        }}
+      ></i>
     </div>
   );
 };

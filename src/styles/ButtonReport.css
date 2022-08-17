@@ -1,0 +1,9 @@
+.buttonReport button {
+  width: 110px;
+  height: 50px;
+  background-color: white;
+  color: #eaa79e;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}

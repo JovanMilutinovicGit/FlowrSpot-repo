@@ -14,6 +14,7 @@ import NewSighting from "./pages/NewSighting.js";
 import Profile from "./pages/Profile.js";
 import User from "./pages/User.js";
 import SightingDetail from "./pages/SightingDetail.js";
+import Settings from "./pages/Settings";
 
 const App = () => {
   const [isOpenNewAcc, setOpenNewAcc] = useState(false);
@@ -65,7 +66,7 @@ const App = () => {
             <Profile setCloseProfile={openProfileInfo} logout={setIsLogin} />
           </Modal>
         )}
-        {/*<Modal>
+        {/*Modal>
           <Settings />
         </Modal>*/}
         <Navbar
