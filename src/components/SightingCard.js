@@ -8,7 +8,7 @@ const SightingCard = () => {
       <div className="cardImage">
         <img src={cardImage} />
         <div className="location">
-          <i class="fa fa-map-marker"></i>
+          <i className="fa fa-map-marker"></i>
           <span>San Francisco, US</span>
         </div>
       </div>

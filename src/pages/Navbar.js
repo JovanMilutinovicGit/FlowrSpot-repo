@@ -5,7 +5,7 @@ import profileImage from "../assets/profile-holder.png";
 import "../styles/Navbar.css";
 import { useState } from "react";
 const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
-  const [icon, setIcon] = useState(true);
+  const [icon, setIcon] = useState(false);
 
   const iconFunc = () => {
     if (icon) {
@@ -23,7 +23,7 @@ const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
           FlowrSpot
         </Link>
       </div>
-      <div className={icon ? "nav-menu-active" : "nav-menu"}>
+      <div className={icon ? "nav-menu active" : "nav-menu"}>
         <div className="items">
           <Link
             to="/flowers"
@@ -97,7 +97,7 @@ const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
         </div>
       </div>
       <i
-        className={icon ? "fa fa-bars" : "fa fa-times"}
+        className={icon ? "fa fa-times" : "fa fa-bars"}
         onClick={(e) => {
           iconFunc(true);
         }}

@@ -1,6 +1,7 @@
 import react from "react";
 import "../styles/Settings.css";
-
+import ToggleButton from "../components/buttons/ToggleButton";
+import RangeSlider from "../components/RangeSlider";
 const Settings = () => {
   return (
     <div className="settings">
@@ -18,13 +19,16 @@ const Settings = () => {
         <div className="allSettings-content">
           <div className="turnNotification">
             <h4>Turn notifications</h4>
+            <ToggleButton />
           </div>
           <div className="hint">
             <p className="hintMess">
               Select favorite flower sighting radius for <br /> notifications
             </p>
           </div>
-          <div className="distanceBar">----------------------------</div>
+
+          <RangeSlider />
+
           <div className="saveBtn">
             <button>Save settings</button>
           </div>

@@ -35,10 +35,7 @@
   margin: 0px 33px;
   color: #949ea0;
 }
-.nav-menu-active {
-  margin-right: 10px;
-}
-.nav-menu-active .link {
+.link {
   text-decoration: none;
   margin: 0px 33px;
   color: #949ea0;
@@ -71,7 +68,7 @@
 @media screen and (max-width: 420px) {
   .navbar {
     position: relative;
-    z-index: 1000;
+    z-index: 100;
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.05);
   }
   .nav-menu {
@@ -81,11 +78,17 @@
     height: 500px;
     position: absolute;
     top: 80px;
-    background-color: white;
+    left: -100%;
     opacity: 1;
+    transition: all 1s ease;
   }
-  .nav-menu-active {
-    display: none;
+  .nav-menu.active {
+    background: white;
+    top: 80px;
+    left: 0;
+    opacity: 1;
+    transform: all 0.5s ease;
+    z-index: 1;
   }
   .navbar i {
     display: block;

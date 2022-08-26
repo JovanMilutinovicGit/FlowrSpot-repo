@@ -1,27 +1,29 @@
 import React from "react";
 import heroDetail from "../assets/heroDetail.png";
-import flowerImage from "../assets/flowerImage.png";
 import { Link } from "react-router-dom";
 import Button from "../components/buttons/Button.js";
 import "../styles/FlowerDetail.css";
 import CardsList from "../components/CardsList";
-const FlowerDetail = () => {
+import { connect } from "react-redux";
+const FlowerDetail = (props) => {
   return (
     <div className="flowerDetail">
       <div className="heroDetail">
         <img id="imgHero" src={heroDetail} />
-        <img id="imgFlower" src={flowerImage} />
+        <div className="flowrImg">
+          <img id="imgFlower" src={props.flower.profile_picture} />
+        </div>
         <div className="heroDetailRight">
           <div className="fav">
             <i className="fa fa-star"></i>
-            <span>127 sightings</span>
+            <span>{props.flower.sightings} sightings</span>
           </div>
           <div className="descAndBtn">
             <div className="desc">
               <h2>
-                <span>Balloon flower</span>
+                <span>{props.flower.name}</span>
               </h2>
-              <p>Platycodon grandiflorus</p>
+              <p>{props.flower.latin_name}</p>
             </div>
             <div className="btnAdd">
               <Link to="/newSighting">
@@ -68,4 +70,7 @@ const FlowerDetail = () => {
   );
 };
 
-export default FlowerDetail;
+const mapStateToProps = (state) => {
+  return { flower: state.selected };
+};
+export default connect(mapStateToProps)(FlowerDetail);

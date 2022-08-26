@@ -1,23 +1,29 @@
 import React from "react";
-import cardImage from "../assets/cardImage.png";
 import "../styles/FlowersItem.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { SelectFlower } from "../actions/Index.js";
+import { useDispatch } from "react-redux";
+const FlowersItem = ({ id, pic, name, latinName, sightings, selectFlowr }) => {
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(SelectFlower(selectFlowr));
+  };
 
-const FlowersItem = () => {
   return (
     <div className="card">
       <div>
-        <Link to="/flowerDetail">
-          <img src={cardImage} />
+        <Link to={`/flowerDetail/${id}`}>
+          <img src={pic} onClick={handleClick} />
         </Link>
       </div>
       <div className="description">
         <h2>
-          <span>Ballon flower</span>
+          <span>{name}</span>
         </h2>
-        <h6 className="descriptionFlower">Platycodon grandiflorus</h6>
+        <h6 className="descriptionFlower">{latinName}</h6>
         <div className="sightings">
-          <p>127 sightings</p>
+          <p>{sightings} sightings</p>
         </div>
       </div>
       <div className="favorite">
@@ -28,4 +34,7 @@ const FlowersItem = () => {
     </div>
   );
 };
-export default FlowersItem;
+const mapStateToProps = (state) => {
+  return { select: state.selected };
+};
+export default connect(mapStateToProps, { SelectFlower })(FlowersItem);

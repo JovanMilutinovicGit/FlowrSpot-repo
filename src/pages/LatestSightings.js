@@ -4,7 +4,8 @@ import "../styles/LatestSighting.css";
 import CardsList from "../components/CardsList";
 import Button from "../components/buttons/Button.js";
 import { Link } from "react-router-dom";
-const LatestSightings = () => {
+const LatestSightings = (props) => {
+  console.log(props);
   return (
     <div className="LatestSightings">
       <div className="hero-sighting">

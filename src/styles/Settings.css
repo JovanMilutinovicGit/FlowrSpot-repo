@@ -27,6 +27,7 @@
 .titleSettings {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 70%;
 }
 
@@ -39,15 +40,11 @@
   color: #949ea0;
 }
 
-.turnNotification {
-  width: 70%;
-}
-
 .allSettings {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .allSettings-content {
@@ -63,20 +60,31 @@
 
 .turnNotification h4 {
   font-size: 14px;
+  font-family: "ubuntu";
 }
 .turnNotification {
   width: 100%;
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid #e8e9ed;
+  font-family: "ubuntu";
 }
 
 .hintMess {
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: bold;
   color: #334144;
+  font-family: "ubuntu";
+}
+.distanceBar {
+  width: 100%;
+  border: 2px solid blue;
 }
 
 .saveBtn {
   display: flex;
   justify-content: center;
+  font-family: "ubuntu";
 }
 
 .saveBtn button {
@@ -86,4 +94,14 @@
   color: white;
   border: none;
   cursor: pointer;
+  font-family: "ubuntu";
+}
+
+@media screen and (max-width: 420px) {
+  .settings {
+    width: 100%;
+  }
+  .settings .close {
+    display: none;
+  }
 }

@@ -15,6 +15,7 @@ import Profile from "./pages/Profile.js";
 import User from "./pages/User.js";
 import SightingDetail from "./pages/SightingDetail.js";
 import Settings from "./pages/Settings";
+import history from "./history.js";
 
 const App = () => {
   const [isOpenNewAcc, setOpenNewAcc] = useState(false);
@@ -48,7 +49,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Router>
+      <Router history={history}>
         {isOpenNewAcc && (
           <Modal>
             <NewAccount setCloseNewAcc={openNewAcc} />
@@ -66,9 +67,11 @@ const App = () => {
             <Profile setCloseProfile={openProfileInfo} logout={setIsLogin} />
           </Modal>
         )}
-        {/*Modal>
-          <Settings />
-        </Modal>*/}
+        {/*
+          <Modal>
+            <Settings />
+          </Modal>
+        */}
         <Navbar
           openModal={openNewAcc}
           openLogin={openLogin}
@@ -82,7 +85,7 @@ const App = () => {
           <Route exact path="/flowers" element={<Flowers />} />
           <Route exact path="/latestSightings" element={<LatestSightings />} />
           <Route exact path="/favorites" element={<Favorites />} />
-          <Route exact path="/flowerDetail" element={<FlowerDetail />} />
+          <Route exact path="/flowerDetail/:id" element={<FlowerDetail />} />
           <Route exact path="/newSighting" element={<NewSighting />} />
           <Route exact path="/user" element={<User />} />
           <Route exact path="/sightingDetail" element={<SightingDetail />} />

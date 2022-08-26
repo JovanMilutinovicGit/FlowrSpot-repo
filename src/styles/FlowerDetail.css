@@ -11,10 +11,17 @@
 #imgHero {
   width: 100%;
 }
-#imgFlower {
+.flowrImg {
   position: absolute;
-  top: 70px;
+  top: 150px;
   left: 28px;
+  width: 20%;
+  height: 270px;
+}
+
+#imgFlower {
+  width: 100%;
+  height: 100%;
 }
 
 .heroDetailRight {
@@ -117,12 +124,14 @@
     width: 100%;
     height: 350px;
   }
-  #imgFlower {
+  .flowrImg {
     position: none;
     width: 100%;
     height: 350px;
     top: 0;
     left: 0;
+  }
+  #imgFlower {
     filter: brightness(70%);
   }
   .heroDetailRight {
