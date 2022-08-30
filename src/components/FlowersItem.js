@@ -4,17 +4,23 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { SelectFlower } from "../actions/Index.js";
 import { useDispatch } from "react-redux";
-const FlowersItem = ({ id, pic, name, latinName, sightings, selectFlowr }) => {
-  const dispatch = useDispatch();
+const FlowersItem = ({
+  id,
+  pic,
+  name,
+  latinName,
+  sightings /*, selectFlowr*/,
+}) => {
+  /* const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(SelectFlower(selectFlowr));
   };
-
+*/
   return (
     <div className="card">
       <div>
         <Link to={`/flowerDetail/${id}`}>
-          <img src={pic} onClick={handleClick} />
+          <img src={pic} /*onClick={handleClick}*/ />
         </Link>
       </div>
       <div className="description">
@@ -34,7 +40,8 @@ const FlowersItem = ({ id, pic, name, latinName, sightings, selectFlowr }) => {
     </div>
   );
 };
+/*
 const mapStateToProps = (state) => {
   return { select: state.selected };
-};
-export default connect(mapStateToProps, { SelectFlower })(FlowersItem);
+};*/
+export default /*connect(mapStateToProps, { SelectFlower })*/ FlowersItem;

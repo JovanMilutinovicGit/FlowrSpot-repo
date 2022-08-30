@@ -5,7 +5,7 @@ export default (state = {}, action) => {
     case "FETCH_FLOWERS":
       /* key interpolation syntax, iskoristili smo da bi svaki objekat iz niza objekata razlikovali po svom ID-u*/
       return { ...state, ..._.mapKeys(action.payload, "id") };
-    case "FETCH_FLOWER_DETAIL":
+    case "FETCH_FLOWER":
       return action.payload;
     default:
       return state;

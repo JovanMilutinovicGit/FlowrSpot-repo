@@ -5,25 +5,30 @@ import Button from "../components/buttons/Button.js";
 import "../styles/FlowerDetail.css";
 import CardsList from "../components/CardsList";
 import { connect } from "react-redux";
-const FlowerDetail = (props) => {
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+const FlowerDetail = () => {
+  const params = useParams();
+  const item = useSelector((state) => state.flowrs[params.id]);
+  console.log(item.name);
   return (
     <div className="flowerDetail">
       <div className="heroDetail">
         <img id="imgHero" src={heroDetail} />
         <div className="flowrImg">
-          <img id="imgFlower" src={props.flower.profile_picture} />
+          <img id="imgFlower" src={item.profile_picture} />
         </div>
         <div className="heroDetailRight">
           <div className="fav">
             <i className="fa fa-star"></i>
-            <span>{props.flower.sightings} sightings</span>
+            <span>{item.sightings} sightings</span>
           </div>
           <div className="descAndBtn">
             <div className="desc">
               <h2>
-                <span>{props.flower.name}</span>
+                <span>{item.name}</span>
               </h2>
-              <p>{props.flower.latin_name}</p>
+              <p>{item.latin_name}</p>
             </div>
             <div className="btnAdd">
               <Link to="/newSighting">
@@ -71,6 +76,6 @@ const FlowerDetail = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { flower: state.selected };
+  return { flowers: state.flowrs };
 };
 export default connect(mapStateToProps)(FlowerDetail);

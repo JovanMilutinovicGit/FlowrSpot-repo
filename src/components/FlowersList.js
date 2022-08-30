@@ -32,8 +32,8 @@ class FlowersList extends React.Component {
 
 const mapStateToProps = (state) => {
   /*Uzimamo objekat i i sve razlicite vrednosti iz objketa smestamo u niz*/
-  return { flowers: Object.values(state.flowrs), select: state.selected };
+  return { flowers: Object.values(state.flowrs) /*select: state.selected */ };
 };
-export default connect(mapStateToProps, { fetchFlowers, SelectFlower })(
+export default connect(mapStateToProps, { fetchFlowers /*, SelectFlower*/ })(
   FlowersList
 );
