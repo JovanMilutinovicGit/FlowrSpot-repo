@@ -2,8 +2,8 @@ import React from "react";
 import cardImage from "../assets/cardImage.png";
 import "../styles/SightingCard.css";
 import CardDetail from "./CardDetail.js";
-const SightingCard = () => {
-  return (
+
+const SightingCard = () => (
     <div className="SightingCard">
       <div className="cardImage">
         <img src={cardImage} />
@@ -17,5 +17,5 @@ const SightingCard = () => {
       </div>
     </div>
   );
-};
+
 export default SightingCard;

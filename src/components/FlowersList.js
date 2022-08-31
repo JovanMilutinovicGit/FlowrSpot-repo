@@ -2,16 +2,13 @@ import React from "react";
 import FlowersItem from "./FlowersItem.js";
 import "../styles/FlowersList.css";
 import { fetchFlowers } from "../actions/Index.js";
-import { SelectFlower } from "../actions/Index.js";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 class FlowersList extends React.Component {
   componentDidMount() {
     this.props.fetchFlowers();
   }
 
   render() {
-    console.log(this.props);
     const listFlowers = this.props.flowers.map((flower) => {
       return (
         <FlowersItem
@@ -31,7 +28,6 @@ class FlowersList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  /*Uzimamo objekat i i sve razlicite vrednosti iz objketa smestamo u niz*/
   return { flowers: Object.values(state.flowrs) /*select: state.selected */ };
 };
 export default connect(mapStateToProps, { fetchFlowers /*, SelectFlower*/ })(

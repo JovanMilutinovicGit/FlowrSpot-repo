@@ -1,22 +1,14 @@
 import React from "react";
 import "../styles/FlowersItem.css";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { SelectFlower } from "../actions/Index.js";
-import { useDispatch } from "react-redux";
+
 const FlowersItem = ({
   id,
   pic,
   name,
   latinName,
   sightings /*, selectFlowr*/,
-}) => {
-  /* const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(SelectFlower(selectFlowr));
-  };
-*/
-  return (
+}) => (
     <div className="card">
       <div>
         <Link to={`/flowerDetail/${id}`}>
@@ -39,9 +31,6 @@ const FlowersItem = ({
       </div>
     </div>
   );
-};
-/*
-const mapStateToProps = (state) => {
-  return { select: state.selected };
-};*/
-export default /*connect(mapStateToProps, { SelectFlower })*/ FlowersItem;
+
+
+export default FlowersItem;

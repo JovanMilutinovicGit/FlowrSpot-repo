@@ -15,6 +15,7 @@ const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
     } else {
     }
   };
+  
   return (
     <div className="navbar">
       <div className="leftSide">

@@ -3,8 +3,7 @@ import FlowersList from "../components/FlowersList.js";
 import InputSearch from "../components/inputs/InputSearch.js";
 import "../styles/Flowers.css";
 
-const Flowers = () => {
-  return (
+const Flowers = () => (
     <div className="flowers">
       <div className="discoverSearch">
         <InputSearch />
@@ -14,6 +13,5 @@ const Flowers = () => {
       </div>
     </div>
   );
-};
 
 export default Flowers;

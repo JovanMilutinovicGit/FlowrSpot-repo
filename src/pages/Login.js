@@ -1,7 +1,6 @@
 import React from "react";
 
-const Login = ({ setCloseLogin, setLogin }) => {
-  return (
+const Login = ({ setCloseLogin, setLogin }) => (
     <div className="formLogin">
       <h2>Welcome back</h2>
       <div className="emailAndPass">
@@ -25,5 +24,5 @@ const Login = ({ setCloseLogin, setLogin }) => {
       </div>
     </div>
   );
-};
+
 export default Login;
