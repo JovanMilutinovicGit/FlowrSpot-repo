@@ -7,9 +7,11 @@ import CardsList from "../components/CardsList";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 const FlowerDetail = () => {
   const params = useParams();
   const item = useSelector((state) => state.flowrs[params.id]);
+
   console.log(item.name);
   return (
     <div className="flowerDetail">
@@ -75,7 +77,7 @@ const FlowerDetail = () => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return { flowers: state.flowrs };
+const mapStateToProps = ({ flowrs}) => {
+  return { flowers: flowrs };
 };
 export default connect(mapStateToProps)(FlowerDetail);

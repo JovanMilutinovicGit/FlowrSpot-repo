@@ -4,6 +4,7 @@ import "../../styles/ToggleButton.css";
 const ToggleButton = () => {
   const [isToggled, setIsToggled] = useState(true);
   const onToggle = () => setIsToggled(!isToggled);
+  
   return (
     <div className="toggleButton">
       <label className="toggle-switch">

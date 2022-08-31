@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/ButtonReport.css";
+
 const ButtonReport = ({ name }) => {
   return (
     <div className="buttonReport">

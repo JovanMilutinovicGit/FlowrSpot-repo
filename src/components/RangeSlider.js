@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "../styles/RangeSlider.css";
+
+const MAX = 10;
+const PERCENTAGE = 100;
+
 const RangeSlider = () => {
   const [value, setValue] = useState(0);
-  console.log(value);
-  const MAX = 10;
-  const getBackgroundSize = () => {
-    return { backgroundSize: `${(value * 100) / MAX}% 100%` };
-  };
+
   return (
     <div className="rangeSlider">
       <input
@@ -15,10 +15,9 @@ const RangeSlider = () => {
         max={MAX}
         step="5"
         onChange={(e) => setValue(e.target.value)}
-        style={getBackgroundSize()}
+        style={{ backgroundSize: `${(value * PERCENTAGE) / MAX}% 100%` }}
         value={value}
       />
-
       <div className="valueOfSlider">
         <span id="one">1 km</span>
         <span id="five">5 km</span>

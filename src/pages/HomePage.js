@@ -3,8 +3,8 @@ import FlowersList from "../components/FlowersList";
 import "../styles/HomePage.css";
 import InputSearch from "../components/inputs/InputSearch.js";
 import heroImage from "../assets/heroImage.png";
-const HomePage = () => {
-  return (
+
+const HomePage = () =>  (
     <div>
       <div className="hero-section">
         <img src={heroImage} />
@@ -17,5 +17,5 @@ const HomePage = () => {
       <FlowersList />
     </div>
   );
-};
+
 export default HomePage;

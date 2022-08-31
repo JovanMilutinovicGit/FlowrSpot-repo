@@ -1,10 +1,11 @@
 import React from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-import Button from "../components/buttons/Button.js";
+
 const Map = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyApf2jPfPflpwy0o8MG-VPfHJHDlO05XYg",
   });
+
   return (
     <div>
       {!isLoaded ? (

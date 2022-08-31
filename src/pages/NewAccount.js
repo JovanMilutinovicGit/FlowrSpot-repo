@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../components/buttons/Button.js";
-const NewAccount = ({ setCloseNewAcc }) => {
-  return (
+
+const NewAccount = ({ setCloseNewAcc }) => (
     <div className="form">
       <h2>Create an Account</h2>
       <div className="nameAndSurname">
@@ -22,6 +22,6 @@ const NewAccount = ({ setCloseNewAcc }) => {
         </p>
       </div>
     </div>
-  );
-};
+);
+
 export default NewAccount;
