@@ -5,12 +5,16 @@ import { fetchFlowers } from "../actions/Index.js";
 import { SelectFlower } from "../actions/Index.js";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
 class FlowersList extends React.Component {
   componentDidMount() {
     this.props.fetchFlowers();
   }
 
   render() {
+    if (!this.props.fetchFlowers) {
+      return <div></div>;
+    }
     console.log(this.props);
     const listFlowers = this.props.flowers.map((flower) => {
       return (

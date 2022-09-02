@@ -85,10 +85,14 @@ const App = () => {
           <Route exact path="/flowers" element={<Flowers />} />
           <Route exact path="/latestSightings" element={<LatestSightings />} />
           <Route exact path="/favorites" element={<Favorites />} />
-          <Route exact path="/flowerDetail/:id" element={<FlowerDetail />} />
+          <Route path="/flowerDetail/:id" element={<FlowerDetail />} />
           <Route exact path="/newSighting" element={<NewSighting />} />
           <Route exact path="/user" element={<User />} />
-          <Route exact path="/sightingDetail" element={<SightingDetail />} />
+          <Route
+            exact
+            path="/sightingDetail/:id"
+            element={<SightingDetail />}
+          />
         </Routes>
       </Router>
     </div>

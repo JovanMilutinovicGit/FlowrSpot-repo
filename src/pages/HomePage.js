@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import FlowersList from "../components/FlowersList";
+import React from "react";
+import RandomFlowerList from "../components/RandomFlowerList.js";
 import "../styles/HomePage.css";
 import InputSearch from "../components/inputs/InputSearch.js";
 import heroImage from "../assets/heroImage.png";
@@ -14,7 +14,7 @@ const HomePage = () => {
           <InputSearch />
         </div>
       </div>
-      <FlowersList />
+      <RandomFlowerList />
     </div>
   );
 };

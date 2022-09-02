@@ -6,7 +6,13 @@ import CardDetail from "../components/CardDetail.js";
 import CommentsList from "../components/CommentsList.js";
 import ButtonReport from "../components/buttons/ButtonReport.js";
 import Button from "../components/buttons/Button.js";
-const SightingDetail = () => {
+import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
+
+const SightingDetail = (props) => {
+  const prms = useParams();
+  console.log(prms);
+  console.log(props);
   return (
     <div className="sightingDetail">
       <div className="mapView">
@@ -27,7 +33,7 @@ const SightingDetail = () => {
               <img src={image} />
             </div>
             <div className="userAndDesc">
-              <CardDetail />
+              <CardDetail params={prms} />
             </div>
           </div>
         </div>
@@ -39,7 +45,7 @@ const SightingDetail = () => {
             </div>
           </div>
           <div>
-            <CommentsList />
+            <CommentsList params={prms} />
           </div>
         </div>
         <div className="commentPublish">
@@ -54,4 +60,9 @@ const SightingDetail = () => {
     </div>
   );
 };
-export default SightingDetail;
+
+const mapStateToProps = ({ sightings }) => {
+  return { sighting: sightings };
+};
+
+export default connect(mapStateToProps)(SightingDetail);

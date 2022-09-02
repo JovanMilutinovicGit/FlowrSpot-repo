@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/FlowersItem.css";
 import { Link } from "react-router-dom";
 
-const FlowersItem = ({ id, pic, name, latinName, sightings }) => {
+const RandomItem = ({ id, pic, name, latinName, sightings }) => {
   return (
     <div className="card">
       <div>
@@ -28,4 +28,4 @@ const FlowersItem = ({ id, pic, name, latinName, sightings }) => {
   );
 };
 
-export default FlowersItem;
+export default RandomItem;
