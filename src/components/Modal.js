@@ -1,16 +1,12 @@
 import React from "react";
 import "../styles/Modal.css";
-const Modal = ({ children }) => {
-  return (
-    <div>
-      <Layout />
-      <div>{children}</div>
-    </div>
-  );
-};
 
-const Layout = () => {
-  return <div className="backGround"></div>;
-};
+// eslint-disable-next-line react/prop-types
+const Modal = ({ children }) => (
+  <div>
+    <div className="backGround"></div>
+    <div>{children}</div>
+  </div>
+);
 
 export default Modal;

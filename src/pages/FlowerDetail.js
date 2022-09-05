@@ -1,76 +1,69 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React, { useEffect } from "react";
 import heroDetail from "../assets/heroDetail.png";
 import { Link } from "react-router-dom";
 import Button from "../components/buttons/Button.js";
 import "../styles/FlowerDetail.css";
-import CardsList from "../components/CardsList";
+/*import CardsList from "../components/CardsList";*/
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchFlower } from "../actions/Index.js";
+import FlowerSightingsList from "../components/FlowerSightingsList";
 
-function withParams(Component) {
-  return (props) => <Component {...props} params={useParams()} />;
-}
+const FlowerDetail = ({ flower, fetchFlower }) => {
+  const params = useParams();
 
-class FlowerDetail extends React.Component {
-  componentDidMount() {
-    this.props.fetchFlower(this.props.params.id);
-  }
+  const { profile_picture, sightings, name, latin_name, description } = flower;
+  useEffect(() => {
+    fetchFlower(params.id);
+  }, []);
 
-  render() {
-    if (!this.props.flower) {
-      return <div></div>;
-    }
-
-    return (
-      <div className="flowerDetail">
-        <div className="heroDetail">
-          <img id="imgHero" src={heroDetail} />
-          <div className="flowrImg">
-            <img id="imgFlower" src={this.props.flower.profile_picture} />
+  return (
+    <div className="flowerDetail">
+      <div className="heroDetail">
+        <img id="imgHero" src={heroDetail} />
+        <div className="flowrImg">
+          <img id="imgFlower" src={profile_picture} />
+        </div>
+        <div className="heroDetailRight">
+          <div className="fav">
+            <i className="fa fa-star"></i>
+            <span>{sightings} sightings</span>
           </div>
-          <div className="heroDetailRight">
-            <div className="fav">
-              <i className="fa fa-star"></i>
-              <span>{this.props.flower.sightings} sightings</span>
+          <div className="descAndBtn">
+            <div className="desc">
+              <h2>
+                <span>{name}</span>
+              </h2>
+              <p>{latin_name}</p>
             </div>
-            <div className="descAndBtn">
-              <div className="desc">
-                <h2>
-                  <span>{this.props.flower.name}</span>
-                </h2>
-                <p>{this.props.flower.latin_name}</p>
-              </div>
-              <div className="btnAdd">
-                <Link to="/newSighting">
-                  <Button name={"+Add New Sighting"} />
-                </Link>
-              </div>
+            <div className="btnAdd">
+              <Link to="/newSighting">
+                <Button name={"+Add New Sighting"} />
+              </Link>
             </div>
           </div>
-        </div>
-        <div className="descriptionDetail">
-          <div className="leftSideDescription">
-            <p>Kingdom: Plantae</p>
-            <p>Order: Asterales</p>
-            <p>Family: Campanulaceae</p>
-            <p>Species: P. grandiflorus</p>
-          </div>
-          <div className="rightSideDescription">
-            <p>{this.props.flower.description}</p>
-          </div>
-        </div>
-        <div className="listCards">
-          <CardsList />
         </div>
       </div>
-    );
-  }
-}
+      <div className="descriptionDetail">
+        <div className="leftSideDescription">
+          <p>Kingdom: Plantae</p>
+          <p>Order: Asterales</p>
+          <p>Family: Campanulaceae</p>
+          <p>Species: P. grandiflorus</p>
+        </div>
+        <div className="rightSideDescription">
+          <p>{description}</p>
+        </div>
+      </div>
+      <div className="listCards">
+        <FlowerSightingsList />
+      </div>
+    </div>
+  );
+};
 
 const mapStateToProps = ({ fetchFlower }) => {
   return { flower: fetchFlower };
 };
-export default connect(mapStateToProps, { fetchFlower })(
-  withParams(FlowerDetail)
-);
+export default connect(mapStateToProps, { fetchFlower })(FlowerDetail);

@@ -1,10 +1,17 @@
-import react from "react";
+import React from "react";
 import "../styles/NewSighting.css";
 import Button from "../components/buttons/Button.js";
 import Map from "../components/Map.js";
 import Logo from "../assets/pl-icon-photo.png";
+import { useForm } from "react-hook-form";
 
 const NewSighting = () => {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="NewSighting">
       <div className="map">
@@ -21,30 +28,38 @@ const NewSighting = () => {
             </h1>
             <p>Explore between more than 8.427 sightings</p>
           </div>
-          <div className="formInputs">
-            <div className="formInputs-1">
-              <input
-                className="firstInput"
-                placeholder="Title of the sighting"
-              />
-              <input placeholder="Coordinates of the sighting" />
-              <button>
-                <img src={Logo} />
-                Add a photo
-              </button>
-            </div>
-            <div className="formInputs-2">
-              <input
-                className="firstInput"
-                placeholder="Write a description…"
-              />
-            </div>
-            <div className="createButton">
-              <div className="button">
-                <Button name={"Create New Sighting"} />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="formInputs">
+              <div className="formInputs-1">
+                <input
+                  className="firstInput"
+                  placeholder="Title of the sighting"
+                  type="text"
+                  {...register("email", { required: true })}
+                />
+                <input placeholder="Coordinates of the sighting" />
+                <button
+                  type="file"
+                  id="file_upload"
+                  {...register("profile_picture")}
+                >
+                  <img src={Logo} />
+                  Add a photo
+                </button>
+              </div>
+              <div className="formInputs-2">
+                <input
+                  className="firstInput"
+                  placeholder="Write a description…"
+                />
+              </div>
+              <div className="createButton">
+                <div className="button">
+                  <Button name={"Create New Sighting"} />
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

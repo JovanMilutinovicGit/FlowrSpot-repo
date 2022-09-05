@@ -1,43 +1,38 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React, { useEffect } from "react";
 import FlowersItem from "./FlowersItem.js";
 import "../styles/FlowersList.css";
 import { fetchFlowers } from "../actions/Index.js";
-import { SelectFlower } from "../actions/Index.js";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
-class FlowersList extends React.Component {
-  componentDidMount() {
-    this.props.fetchFlowers();
+const FlowersList = ({ flowers, fetchFlowers }) => {
+  useEffect(() => {
+    fetchFlowers();
+  }, []);
+
+  if (!fetchFlowers) {
+    <div></div>;
   }
 
-  render() {
-    if (!this.props.fetchFlowers) {
-      return <div></div>;
-    }
-    console.log(this.props);
-    const listFlowers = this.props.flowers.map((flower) => {
+  const listFlowers = Object.values(flowers).map(
+    ({ id, name, latin_name, profile_picture, sightings }) => {
       return (
         <FlowersItem
-          key={flower.id}
-          id={flower.id}
-          name={flower.name}
-          latinName={flower.latin_name}
-          pic={flower.profile_picture}
-          sightings={flower.sightings}
-          selectFlowr={flower}
+          key={id}
+          id={id}
+          name={name}
+          latinName={latin_name}
+          pic={profile_picture}
+          sightings={sightings}
         />
       );
-    });
+    }
+  );
 
-    return <div className="FlowersList">{listFlowers}</div>;
-  }
-}
-
-const mapStateToProps = (state) => {
-  /*Uzimamo objekat i i sve razlicite vrednosti iz objketa smestamo u niz*/
-  return { flowers: Object.values(state.flowrs) /*select: state.selected */ };
+  return <div className="FlowersList">{listFlowers}</div>;
 };
-export default connect(mapStateToProps, { fetchFlowers /*, SelectFlower*/ })(
-  FlowersList
-);
+
+const mapStateToProps = ({ flowrs }) => {
+  return { flowers: flowrs };
+};
+export default connect(mapStateToProps, { fetchFlowers })(FlowersList);

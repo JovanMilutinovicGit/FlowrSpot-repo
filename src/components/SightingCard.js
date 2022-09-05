@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import "../styles/SightingCard.css";
 import CardDetail from "./CardDetail.js";

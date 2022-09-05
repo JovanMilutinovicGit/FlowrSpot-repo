@@ -1,22 +1,37 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React, { useEffect } from "react";
 import Map from "../components/Map.js";
 import "../styles/SighttingDetail.css";
-import image from "../assets/cardImage.png";
 import CardDetail from "../components/CardDetail.js";
 import CommentsList from "../components/CommentsList.js";
 import ButtonReport from "../components/buttons/ButtonReport.js";
 import Button from "../components/buttons/Button.js";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+import { fetchSighting } from "../actions/Index.js";
+// eslint-disable-next-line react/prop-types
 
-const SightingDetail = (props) => {
+const SightingDetail = ({ sightingDetail, fetchSighting }) => {
   const prms = useParams();
-  console.log(prms);
-  console.log(props);
+  useEffect(() => {
+    fetchSighting(prms.id);
+  }, []);
+
+  const {
+    latitude,
+    longitude,
+    picture,
+    id,
+    name,
+    description,
+    likes_count,
+    comments_count,
+  } = sightingDetail;
+
   return (
     <div className="sightingDetail">
       <div className="mapView">
-        <Map />
+        <Map lat={latitude} longitude={longitude} />
         <div className="btnViewAndReport">
           <div className="btn-1">
             <Button name={"View On Google Maps"} />
@@ -30,10 +45,16 @@ const SightingDetail = (props) => {
         <div className="commentSection-1">
           <div className="aboutSighting">
             <div className="imageFlower">
-              <img src={image} />
+              <img src={picture} />
             </div>
             <div className="userAndDesc">
-              <CardDetail params={prms} />
+              <CardDetail
+                id={id}
+                name={name}
+                desc={description}
+                likes={likes_count}
+                comments={comments_count}
+              />
             </div>
           </div>
         </div>
@@ -61,8 +82,8 @@ const SightingDetail = (props) => {
   );
 };
 
-const mapStateToProps = ({ sightings }) => {
-  return { sighting: sightings };
+const mapStateToProps = ({ currentlySightingDetail }) => {
+  return { sightingDetail: currentlySightingDetail };
 };
 
-export default connect(mapStateToProps)(SightingDetail);
+export default connect(mapStateToProps, { fetchSighting })(SightingDetail);

@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/ButtonReport.css";
-const ButtonReport = ({ name }) => {
+
+const ButtonReport = () => {
   return (
     <div className="buttonReport">
       <button>Report</button>

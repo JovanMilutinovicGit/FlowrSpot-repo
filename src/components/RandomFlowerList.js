@@ -1,34 +1,35 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React, { useEffect } from "react";
 import RandomItem from "./RandomItem.js";
 import "../styles/FlowersList.css";
 import { fetchRandomFlowers } from "../actions/Index.js";
 import { connect } from "react-redux";
 
-class RandomFlowerList extends React.Component {
-  componentDidMount() {
-    this.props.fetchRandomFlowers();
-  }
+const RandomFlowerList = ({ randomFlowers, fetchRandomFlowers }) => {
+  useEffect(() => {
+    fetchRandomFlowers();
+  }, []);
 
-  render() {
-    const listRandomFlowers = this.props.randomFlowers.map((flower) => {
+  const listRandomFlowers = Object.values(randomFlowers).map(
+    ({ id, name, latin_name, profile_picture, sightings }) => {
       return (
         <RandomItem
-          key={flower.id}
-          id={flower.id}
-          name={flower.name}
-          latinName={flower.latin_name}
-          pic={flower.profile_picture}
-          sightings={flower.sightings}
+          key={id}
+          id={id}
+          name={name}
+          latinName={latin_name}
+          pic={profile_picture}
+          sightings={sightings}
         />
       );
-    });
+    }
+  );
 
-    return <div className="FlowersList">{listRandomFlowers}</div>;
-  }
-}
+  return <div className="FlowersList">{listRandomFlowers}</div>;
+};
 
 const mapStateToProps = ({ random }) => {
-  return { randomFlowers: Object.values(random) };
+  return { randomFlowers: random };
 };
 
 export default connect(mapStateToProps, { fetchRandomFlowers })(

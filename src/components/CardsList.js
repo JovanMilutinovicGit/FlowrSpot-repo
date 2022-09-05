@@ -1,36 +1,47 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React, { useEffect } from "react";
 import SightingCard from "./SightingCard.js";
 import "../styles/CardsList.css";
 import { fetchSightings } from "../actions/Index.js";
 import { connect } from "react-redux";
 
-class CardsList extends React.Component {
-  componentDidMount() {
-    this.props.fetchSightings();
-  }
-  render() {
-    const listOfSightings = this.props.sightings.map((sighting, index) => {
+const CardsList = ({ sightings, fetchSightings }) => {
+  useEffect(() => {
+    fetchSightings();
+  }, []);
+
+  const renderListSightings = Object.values(sightings).map(
+    ({
+      id,
+      name,
+      description,
+      picture,
+      likes_count,
+      comments_count,
+      user: { full_name },
+      flower: { nameFlower, latin_name, profile_picture },
+    }) => {
       return (
         <SightingCard
-          key={index}
-          id={sighting.id}
-          name={sighting.name}
-          description={sighting.description}
-          picture={sighting.picture}
-          likes={sighting.likes_count}
-          comments={sighting.comments_count}
-          user={sighting.user.full_name}
-          flowerName={sighting.flower.name}
-          flowerLatinName={sighting.flower.latin_name}
-          flowerPic={sighting.flower.profile_picture}
+          key={id}
+          id={id}
+          name={name}
+          description={description}
+          picture={picture}
+          likes={likes_count}
+          comments={comments_count}
+          user={full_name}
+          flowerName={nameFlower}
+          flowerLatinName={latin_name}
+          flowerPic={profile_picture}
         />
       );
-    });
-    return <div className="CardList">{listOfSightings}</div>;
-  }
-}
+    }
+  );
+  return <div className="CardList">{renderListSightings}</div>;
+};
 const mapStateToProps = ({ sightings }) => {
-  return { sightings: Object.values(sightings) };
+  return { sightings: sightings };
 };
 
 export default connect(mapStateToProps, { fetchSightings })(CardsList);

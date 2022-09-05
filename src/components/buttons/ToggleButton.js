@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "../../styles/ToggleButton.css";
+
 const ToggleButton = () => {
   const [isToggled, setIsToggled] = useState(true);
   const onToggle = () => setIsToggled(!isToggled);

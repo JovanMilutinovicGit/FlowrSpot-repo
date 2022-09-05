@@ -1,10 +1,18 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import profileImage from "../assets/profile-holder.png";
 import "../styles/Navbar.css";
 import { useState } from "react";
-const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
+
+const Navbar = ({
+  openModal,
+  openLogin,
+  logged,
+  openProfile,
+  openSettings,
+}) => {
   const [icon, setIcon] = useState(false);
 
   const iconFunc = () => {
@@ -12,9 +20,9 @@ const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
       setIcon(false);
     } else if (!icon) {
       setIcon(true);
-    } else {
     }
   };
+
   return (
     <div className="navbar">
       <div className="leftSide">
@@ -28,7 +36,7 @@ const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
           <Link
             to="/flowers"
             className="link"
-            onClick={(e) => {
+            onClick={() => {
               iconFunc(true);
             }}
           >
@@ -37,7 +45,7 @@ const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
           <Link
             to="/latestSightings"
             className="link"
-            onClick={(e) => {
+            onClick={() => {
               iconFunc(true);
             }}
           >
@@ -46,17 +54,27 @@ const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
           <Link
             to="/favorites"
             className="link"
-            onClick={(e) => {
+            onClick={() => {
               iconFunc(true);
             }}
           >
             Favorites
           </Link>
+          <Link
+            to=""
+            className="link"
+            onClick={() => {
+              iconFunc(true);
+              openSettings(true);
+            }}
+          >
+            Settings
+          </Link>
           {logged ? (
             <Link
               to="/user"
               className="link"
-              onClick={(e) => {
+              onClick={() => {
                 iconFunc(true);
               }}
             >
@@ -66,7 +84,7 @@ const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
             <Link
               to=""
               className="link"
-              onClick={(e) => {
+              onClick={() => {
                 openLogin(true);
                 iconFunc(true);
               }}
@@ -78,7 +96,7 @@ const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
             <img
               src={profileImage}
               width="30px"
-              onClick={(e) => {
+              onClick={() => {
                 openProfile(true);
                 iconFunc(true);
               }}
@@ -86,7 +104,7 @@ const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
           ) : (
             <button
               id="button"
-              onClick={(event) => {
+              onClick={() => {
                 openModal(true);
                 iconFunc(true);
               }}
@@ -98,7 +116,7 @@ const Navbar = ({ openModal, openLogin, logged, openProfile }) => {
       </div>
       <i
         className={icon ? "fa fa-times" : "fa fa-bars"}
-        onClick={(e) => {
+        onClick={() => {
           iconFunc(true);
         }}
       ></i>

@@ -1,17 +1,17 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/prop-types */
 import React from "react";
 import Button from "../components/buttons/Button.js";
 import { useForm } from "react-hook-form";
+import { createProfile } from "../actions/Index.js";
+import { connect } from "react-redux";
 
-const NewAccount = ({ setCloseNewAcc }) => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+const NewAccount = ({ setCloseNewAcc, createProfile }) => {
+  const { register, handleSubmit } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    createProfile(data);
   };
 
   return (
@@ -21,11 +21,11 @@ const NewAccount = ({ setCloseNewAcc }) => {
         <input
           placeholder="Name"
           type="text"
-          {...register("firstName", {
-            required: true,
+          required
+          {...register("first_name", {
             minLength: {
-              value: 3,
-              message: "Minimum length is 4",
+              value: 5,
+              message: "Minimum length is 5",
             },
           })}
         />
@@ -33,35 +33,47 @@ const NewAccount = ({ setCloseNewAcc }) => {
         <input
           placeholder="Surname"
           type="text"
-          {...register("lastName", { required: true })}
+          required
+          {...register("last_name", {
+            minLength: {
+              value: 5,
+              message: "Minimum length is 5",
+            },
+          })}
         />
       </div>
       <div className="others">
         <input
           placeholder="Date of Birth"
           type="text"
-          {...register("date_of_birth", { required: true })}
+          required
+          {...register("date_of_birth")}
         />
         <input
           placeholder="Email address"
+          required
           type="text"
-          {...register("email", { required: true })}
+          {...register("email")}
         />
         <input
           placeholder="Password"
           type="password"
-          {...register("password", { required: true })}
+          required
+          {...register("password", {
+            minLength: {
+              value: 5,
+              message: "Minimum length is 5",
+            },
+          })}
         />
       </div>
       <div className="btn">
         <Button name={"Create An Account"} />
       </div>
       <div className="cancel">
-        <p onClick={(event) => setCloseNewAcc(false)}>
-          I don't want to register
-        </p>
+        <p onClick={() => setCloseNewAcc(false)}>I don't want to register</p>
       </div>
     </form>
   );
 };
-export default NewAccount;
+export default connect(null, { createProfile })(NewAccount);

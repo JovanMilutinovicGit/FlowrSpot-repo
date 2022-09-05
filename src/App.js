@@ -9,20 +9,20 @@ import NewAccount from "./pages/NewAccount.js";
 import Login from "./pages/Login.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./styles/App.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import NewSighting from "./pages/NewSighting.js";
 import Profile from "./pages/Profile.js";
 import User from "./pages/User.js";
 import SightingDetail from "./pages/SightingDetail.js";
-import Settings from "./pages/Settings";
 import history from "./history.js";
+import Settings from "./pages/Settings.js";
 
 const App = () => {
   const [isOpenNewAcc, setOpenNewAcc] = useState(false);
   const [isOpenLogin, setOpenLogin] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [openProfile, setOpenProfile] = useState(false);
-
+  const [isOpenSettings, setIsOpenSetings] = useState(false);
   /*Prikaz forme za registraciju*/
 
   const openNewAcc = (boolean) => {
@@ -47,6 +47,10 @@ const App = () => {
     setOpenProfile(boolean);
   };
 
+  const openSettings = (boolean) => {
+    setIsOpenSetings(boolean);
+  };
+
   return (
     <div className="App">
       <Router history={history}>
@@ -67,17 +71,17 @@ const App = () => {
             <Profile setCloseProfile={openProfileInfo} logout={setIsLogin} />
           </Modal>
         )}
-        {/*
+        {isOpenSettings && (
           <Modal>
-            <Settings />
+            <Settings setCloseSettings={openSettings} />
           </Modal>
-        */}
+        )}
         <Navbar
           openModal={openNewAcc}
           openLogin={openLogin}
-          setLogin={setisLogin}
           openProfile={openProfileInfo}
           logged={isLogin}
+          openSettings={openSettings}
         />
 
         <Routes>
