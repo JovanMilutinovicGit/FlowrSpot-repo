@@ -1,3 +1,9 @@
+.flowerDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .heroDetail {
   width: 100%;
   position: relative;
@@ -5,10 +11,17 @@
 #imgHero {
   width: 100%;
 }
-#imgFlower {
+.flowrImg {
   position: absolute;
-  top: 70px;
-  left: 20px;
+  top: 40px;
+  left: 28px;
+  width: 22%;
+  height: 360px;
+}
+
+#imgFlower {
+  width: 100%;
+  height: 100%;
 }
 
 .heroDetailRight {
@@ -19,7 +32,6 @@
   width: 50%;
   height: 90px;
 }
-
 .fav {
   display: flex;
 }
@@ -69,21 +81,23 @@
   font-family: "Ubuntu", sans-serif;
 }
 .descriptionDetail {
-  position: relative;
-  top: 25px;
-  left: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100px;
+  width: 96%;
   margin-top: 40px;
+  display: flex;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #e8e9ed;
 }
 .leftSideDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 20%;
 }
 .leftSideDescription p {
   font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  color: #949ea0;
+  line-height: 25px;
 }
 .rightSideDescription {
   width: 80%;
@@ -94,4 +108,81 @@
   width: 670px;
   font-size: 13px;
   font-family: "Ubuntu", sans-serif;
+  color: #949ea0;
+  line-height: 20px;
+}
+
+.listCards {
+  margin-top: 30px;
+  width: 100%;
+}
+
+@media screen and (max-width: 420px) {
+  .heroDetail {
+  }
+  #imgHero {
+    width: 100%;
+    height: 350px;
+  }
+  .flowrImg {
+    position: none;
+    width: 100%;
+    height: 350px;
+    top: 0;
+    left: 0;
+  }
+  #imgFlower {
+    filter: brightness(70%);
+  }
+  .heroDetailRight {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 56%;
+    left: 10%;
+    transform: none;
+    width: 50%;
+    height: 180px;
+  }
+
+  .fav span {
+    font-size: 12px;
+  }
+  .desc {
+    margin-bottom: 20px;
+  }
+  .desc span {
+    font-weight: 300;
+    font-size: 30px;
+  }
+  .desc p {
+    font-size: 14px;
+  }
+  .descAndBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0px;
+    width: 250px;
+  }
+  .btnAdd {
+    width: 80%;
+  }
+  .descriptionDetail {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border-bottom: none;
+  }
+  .leftSideDescription {
+    width: 100%;
+    margin: 30px 0px;
+  }
+  .rightSideDescription {
+    margin: 0px;
+    width: 100%;
+  }
+  .rightSideDescription p {
+    width: 100%;
+  }
 }

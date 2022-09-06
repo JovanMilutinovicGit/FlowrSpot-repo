@@ -25,12 +25,16 @@
   display: flex;
   justify-content: center;
 }
+.image {
+  display: flex;
+  justify-content: center;
+}
 
 .imgAndSigh {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 40px;
-  width: 70%;
+  width: 60%;
 }
 
 .nameAndSigh {
@@ -82,4 +86,27 @@
   cursor: pointer;
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
+}
+
+@media screen and (max-width: 420px) {
+  .profile {
+    width: 300px;
+  }
+  .profile .close {
+    display: none;
+  }
+  .info-1 {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .imgAndSigh {
+    display: flex;
+    width: 100%;
+  }
+  .info-2 {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
 }

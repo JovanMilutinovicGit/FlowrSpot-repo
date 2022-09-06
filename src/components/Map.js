@@ -1,34 +1,35 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-import Button from "../components/buttons/Button.js";
-const Map = () => {
+import { G_MAP_API_KEY } from "../env/api_keys";
+
+const Map = ({ lat, longitude }) => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyApf2jPfPflpwy0o8MG-VPfHJHDlO05XYg",
+    googleMapsApiKey: G_MAP_API_KEY,
   });
   return (
     <div>
-      {!isLoaded ? (
-        <div>Loading...</div>
-      ) : (
+      {isLoaded ? (
         <div className="map">
-          <ShowMap />
-          <Button name={"View On Google Maps"} />
+          <ShowMap param={lat} param2={longitude} />
         </div>
+      ) : (
+        <div>Loading...</div>
       )}
     </div>
   );
 };
 export default Map;
 
-function ShowMap() {
+const ShowMap = ({ param, param2 }) => {
   return (
     <GoogleMap
       zoom={9}
-      center={{ lat: 42.887661, lng: 20.868401 }}
+      center={{ lat: param, lng: param2 }}
       mapContainerClassName="map"
-      disableDefaultUI={true}
+      disableDefaultUI
     >
-      <Marker position={{ lat: 42.887661, lng: 20.868401 }} />
+      <Marker position={{ lat: param, lng: param2 }} />
     </GoogleMap>
   );
-}
+};

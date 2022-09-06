@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Comment from "./Comment.js";
+
 const CommentsList = () => {
   return (
     <div>
@@ -16,4 +18,5 @@ const CommentsList = () => {
     </div>
   );
 };
+
 export default CommentsList;

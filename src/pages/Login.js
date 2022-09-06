@@ -1,29 +1,50 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/prop-types */
 import React from "react";
+import { useForm } from "react-hook-form";
+import { connect } from "react-redux";
+import { login } from "../actions/Index.js";
 
-const Login = ({ setCloseLogin, setLogin }) => {
+const Login = ({ setCloseLogin }) => {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    login(data);
+    console.log(data);
+  };
+
   return (
-    <div className="formLogin">
+    <form className="formLogin" onSubmit={handleSubmit(onSubmit)}>
       <h2>Welcome back</h2>
       <div className="emailAndPass">
-        <input placeholder="Email address" />
-        <input placeholder="Password" type="password" />
+        <input
+          placeholder="Email address"
+          type="text"
+          required
+          {...register("email", {
+            minLength: {
+              value: 3,
+              message: "Minimum length is 4",
+            },
+          })}
+        />
+        <input
+          placeholder="Password"
+          type="password"
+          required
+          {...register("password")}
+        />
       </div>
       <div className="btn">
-        <button
-          onClick={(e) => {
-            setLogin(true);
-            setCloseLogin(false);
-          }}
-        >
-          Login to your Account
-        </button>
+        <button>Login to your Account</button>
       </div>
       <div>
-        <p className="cancel" onClick={(event) => setCloseLogin(false)}>
+        <p className="cancel" onClick={() => setCloseLogin(false)}>
           I don't want to login
         </p>
       </div>
-    </div>
+    </form>
   );
 };
-export default Login;
+
+export default connect(null, { login })(Login);

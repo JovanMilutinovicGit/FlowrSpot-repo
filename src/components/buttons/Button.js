@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import "../../styles/Button.css";
+
 const Button = ({ name }) => {
   return (
     <div className="addNewSightingButton">
