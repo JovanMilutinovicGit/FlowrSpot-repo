@@ -3,8 +3,10 @@ import React from "react";
 import profileImg from "../assets/profile-holder.png";
 import "../styles/Profile.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/Index.js";
 
-const Profile = ({ setCloseProfile, logout }) => (
+const Profile = ({ setCloseProfile, logoutUser }) => (
   <div className="profile">
     <div className="close">
       <i
@@ -21,7 +23,7 @@ const Profile = ({ setCloseProfile, logout }) => (
         </div>
         <div className="nameAndSigh">
           <h2>
-            <span>Micheal Berry</span>
+            <span>Micheal</span>
           </h2>
           <p>47 sightings</p>
         </div>
@@ -32,19 +34,18 @@ const Profile = ({ setCloseProfile, logout }) => (
         <label>First Name</label>
         <span>Micheal</span>
         <label>Last Name</label>
-        <span>Berry</span>
+        <span>Barrt</span>
         <label>Date of Birth</label>
         <span>May 20, 1980</span>
         <label>Email address</label>
-        <span>micheal.berry@gmail.com</span>
+        <span>micheal.barry@gmail.com</span>
       </div>
     </div>
     <div className="btnLogout">
       <Link to="/">
-        {" "}
         <button
           onClick={() => {
-            logout(false);
+            logoutUser();
             setCloseProfile(false);
           }}
         >
@@ -55,4 +56,6 @@ const Profile = ({ setCloseProfile, logout }) => (
   </div>
 );
 
-export default Profile;
+const mapStateToProps = ({ name }) => ({ user: name });
+
+export default connect(mapStateToProps, { logoutUser })(Profile);

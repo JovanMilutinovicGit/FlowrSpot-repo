@@ -6,6 +6,8 @@ import randomFlowerReducer from "./randomFlowerReducer";
 import fetchFlower from "./fetchFlower";
 import fetchSightingList from "./fetchSightingList";
 import fetchSighting from "./fetchSighting.js";
+import initReducer from "./initReducer";
+import usernameReducer from "./usernameReducer";
 
 export default combineReducers({
   flowrs: flowerReducer,
@@ -15,4 +17,6 @@ export default combineReducers({
   fetchFlower: fetchFlower,
   currentlySightings: fetchSightingList,
   currentlySightingDetail: fetchSighting,
+  init: initReducer,
+  name: usernameReducer,
 });

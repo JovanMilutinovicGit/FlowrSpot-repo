@@ -6,11 +6,7 @@ import Logo from "../assets/pl-icon-photo.png";
 import { useForm } from "react-hook-form";
 
 const NewSighting = () => {
-  const { register, handleSubmit } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const { register } = useForm();
 
   return (
     <div className="NewSighting">
@@ -28,7 +24,7 @@ const NewSighting = () => {
             </h1>
             <p>Explore between more than 8.427 sightings</p>
           </div>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form>
             <div className="formInputs">
               <div className="formInputs-1">
                 <input

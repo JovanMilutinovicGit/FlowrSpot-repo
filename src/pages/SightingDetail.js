@@ -82,8 +82,8 @@ const SightingDetail = ({ sightingDetail, fetchSighting }) => {
   );
 };
 
-const mapStateToProps = ({ currentlySightingDetail }) => {
-  return { sightingDetail: currentlySightingDetail };
-};
+const mapStateToProps = ({ currentlySightingDetail }) => ({
+  sightingDetail: currentlySightingDetail,
+});
 
 export default connect(mapStateToProps, { fetchSighting })(SightingDetail);

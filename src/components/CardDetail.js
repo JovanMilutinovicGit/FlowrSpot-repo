@@ -36,8 +36,6 @@ const CardDetail = ({ id, name, desc, likes, comments, user }) => (
   </div>
 );
 
-const mapStateToProps = ({ sightings }) => {
-  return { sighting: sightings };
-};
+const mapStateToProps = ({ sightings }) => ({ sighting: sightings });
 
 export default connect(mapStateToProps)(CardDetail);

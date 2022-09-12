@@ -48,9 +48,9 @@ const FlowerSightingList = ({
   return <div className="flowerSightingList">{listOfSightings}</div>;
 };
 
-const mapStateToProps = ({ currentlySightings }) => {
-  return { sightings: Object.values(currentlySightings) };
-};
+const mapStateToProps = ({ currentlySightings }) => ({
+  sightings: Object.values(currentlySightings),
+});
 
 export default connect(mapStateToProps, { fetchSightingListCurrentlyFlower })(
   FlowerSightingList

@@ -32,7 +32,6 @@ const FlowersList = ({ flowers, fetchFlowers }) => {
   return <div className="FlowersList">{listFlowers}</div>;
 };
 
-const mapStateToProps = ({ flowrs }) => {
-  return { flowers: flowrs };
-};
+const mapStateToProps = ({ flowrs }) => ({ flowers: flowrs });
+
 export default connect(mapStateToProps, { fetchFlowers })(FlowersList);

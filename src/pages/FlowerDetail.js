@@ -63,7 +63,5 @@ const FlowerDetail = ({ flower, fetchFlower }) => {
   );
 };
 
-const mapStateToProps = ({ fetchFlower }) => {
-  return { flower: fetchFlower };
-};
+const mapStateToProps = ({ fetchFlower }) => ({ flower: fetchFlower });
 export default connect(mapStateToProps, { fetchFlower })(FlowerDetail);

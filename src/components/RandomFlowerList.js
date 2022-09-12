@@ -28,9 +28,7 @@ const RandomFlowerList = ({ randomFlowers, fetchRandomFlowers }) => {
   return <div className="FlowersList">{listRandomFlowers}</div>;
 };
 
-const mapStateToProps = ({ random }) => {
-  return { randomFlowers: random };
-};
+const mapStateToProps = ({ random }) => ({ randomFlowers: random });
 
 export default connect(mapStateToProps, { fetchRandomFlowers })(
   RandomFlowerList

@@ -40,8 +40,6 @@ const CardsList = ({ sightings, fetchSightings }) => {
   );
   return <div className="CardList">{renderListSightings}</div>;
 };
-const mapStateToProps = ({ sightings }) => {
-  return { sightings: sightings };
-};
+const mapStateToProps = ({ sightings }) => ({ sightings: sightings });
 
 export default connect(mapStateToProps, { fetchSightings })(CardsList);

@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+import jwtDecode from "jwt-decode";
+import jwt_decode from "jwt-decode";
 import jsonFlowers from "../apis/jsonFlowers.js";
 
 export const fetchFlowers = () => async (dispatch) => {
@@ -57,5 +60,21 @@ export const createProfile = (formValues) => async (dispatch) => {
 
 export const login = (formValues) => async (dispatch) => {
   const response = await jsonFlowers.post("/users/login", formValues);
-  dispatch({ type: "LOGIN", payload: response });
+  localStorage.setItem("token", response.data.auth_token);
+  dispatch({ type: "LOGIN", payload: response.data });
+};
+
+export const init = () => async (dispatch) => {
+  const token = await localStorage.getItem("token");
+  dispatch({ type: "INIT", payload: token });
+};
+
+export const logoutUser = () => async (dispatch) => {
+  await localStorage.clear();
+  dispatch({ type: "LOGOUT" });
+};
+
+export const getUsername = (id) => async (dispatch) => {
+  const response = await jsonFlowers.get(`users/${id}`);
+  dispatch({ type: "USERNAME", payload: response.data.user.first_name });
 };
