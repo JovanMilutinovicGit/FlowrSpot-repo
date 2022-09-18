@@ -8,6 +8,9 @@ import fetchSightingList from "./fetchSightingList";
 import fetchSighting from "./fetchSighting.js";
 import initReducer from "./initReducer";
 import usernameReducer from "./usernameReducer";
+import fetchFavorites from "./favoritesReducer";
+import userSightingsReducer from "./userSightingsReducer";
+import myInfoReducer from "./myInfoReducer";
 
 export default combineReducers({
   flowrs: flowerReducer,
@@ -19,4 +22,7 @@ export default combineReducers({
   currentlySightingDetail: fetchSighting,
   init: initReducer,
   name: usernameReducer,
+  favorites: fetchFavorites,
+  userSightings: userSightingsReducer,
+  myInfo: myInfoReducer,
 });

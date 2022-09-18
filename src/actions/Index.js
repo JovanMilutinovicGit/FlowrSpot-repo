@@ -1,6 +1,4 @@
 /* eslint-disable no-unused-vars */
-import jwtDecode from "jwt-decode";
-import jwt_decode from "jwt-decode";
 import jsonFlowers from "../apis/jsonFlowers.js";
 
 export const fetchFlowers = () => async (dispatch) => {
@@ -36,8 +34,12 @@ export const fetchSighting = (id) => async (dispatch) => {
 };
 
 export const createSighting = (formValues) => async (dispatch) => {
-  const response = await jsonFlowers.post("/users/register", formValues);
-  dispatch({ type: "CREATE_SIGHTING", payload: response });
+  const token = localStorage.getItem("token");
+  const response = await jsonFlowers.post("/sightings", formValues, {
+    headers: {
+      authorization: token,
+    },
+  });
 };
 
 export const fetchSightingListCurrentlyFlower = (id) => async (dispatch) => {
@@ -53,9 +55,32 @@ export const fetchComments = (id) => async (dispatch) => {
   dispatch({ type: "FETCH_COMMENTS", payload: response.data.comments });
 };
 
+export const createComment = (content, id) => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  const response = await jsonFlowers.post(
+    `/sightings/${id}/comments`,
+    content,
+    {
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+};
+
 export const createProfile = (formValues) => async (dispatch) => {
   const response = await jsonFlowers.post("/users/register", formValues);
   dispatch({ type: "CREATE_PROFILE", payload: response });
+};
+
+export const getMyInfo = () => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  const response = await jsonFlowers.get("/users/me", {
+    headers: {
+      authorization: token,
+    },
+  });
+  dispatch({ type: "GET_MY_INFO", payload: response.data.user });
 };
 
 export const login = (formValues) => async (dispatch) => {
@@ -77,4 +102,40 @@ export const logoutUser = () => async (dispatch) => {
 export const getUsername = (id) => async (dispatch) => {
   const response = await jsonFlowers.get(`users/${id}`);
   dispatch({ type: "USERNAME", payload: response.data.user.first_name });
+};
+
+export const fetchFavorites = () => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  const response = await jsonFlowers.get("/flowers/favorites", {
+    headers: {
+      authorization: token,
+    },
+  });
+  dispatch({ type: "FETCH_FAVORITES", payload: response.data.fav_flowers });
+};
+
+export const markFavorite = (id, mark) => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  const response = await jsonFlowers.post(`/flowers/${id}/favorites`, mark, {
+    headers: {
+      authorization: token,
+    },
+  });
+};
+
+export const unpinFavorite = (id_flower, fav_id) => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  const response = await jsonFlowers.delete(
+    `/flowers/${id_flower}/favorites/${fav_id}`,
+    {
+      headers: {
+        authorization: token,
+      },
+    }
+  );
+};
+
+export const fetchUserSightings = (id) => async (dispatch) => {
+  const response = await jsonFlowers.get(`/users/${id}/sightings`);
+  dispatch({ type: "USER_SIGHTINGS", payload: response.data.sightings });
 };

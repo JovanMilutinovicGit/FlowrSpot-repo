@@ -8,7 +8,6 @@ import "../styles/Navbar.css";
 import { useState } from "react";
 import { connect } from "react-redux";
 import { init } from "../actions/Index.js";
-// eslint-disable-next-line no-unused-vars
 import jwt_decode from "jwt-decode";
 import { getUsername } from "../actions/Index.js";
 
@@ -90,7 +89,7 @@ const Navbar = ({
           {token && (
             <>
               <Link
-                to="/user"
+                to=""
                 className="link"
                 onClick={() => {
                   iconFunc(true);

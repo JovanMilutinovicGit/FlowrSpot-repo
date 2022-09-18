@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useEffect } from "react";
 import SightingCard from "./SightingCard.js";
@@ -12,26 +13,27 @@ const CardsList = ({ sightings, fetchSightings }) => {
 
   const renderListSightings = Object.values(sightings).map(
     ({
-      id,
-      name,
+      id: id_sighting,
+      name: flowerName,
       description,
-      picture,
       likes_count,
       comments_count,
-      user: { full_name },
-      flower: { nameFlower, latin_name, profile_picture },
+      picture,
+      user: { full_name, id },
+      flower: { name, latin_name, profile_picture },
     }) => {
       return (
         <SightingCard
-          key={id}
-          id={id}
-          name={name}
+          key={id_sighting}
+          id={id_sighting}
+          name={flowerName}
           description={description}
           picture={picture}
           likes={likes_count}
           comments={comments_count}
           user={full_name}
-          flowerName={nameFlower}
+          user_id={id}
+          flowerName={name}
           flowerLatinName={latin_name}
           flowerPic={profile_picture}
         />

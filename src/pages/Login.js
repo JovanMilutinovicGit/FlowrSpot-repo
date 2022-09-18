@@ -8,7 +8,6 @@ import { login } from "../actions/Index.js";
 
 const Login = ({ setCloseLogin, login }) => {
   const { register, handleSubmit, getValues } = useForm();
-  const values = getValues();
 
   const onSubmit = (data, e) => {
     e.preventDefault();
