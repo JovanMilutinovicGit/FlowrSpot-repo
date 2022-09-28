@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Comment from "./Comment.js";
 import { fetchComments } from "../actions/Index.js";
 import { useParams } from "react-router-dom";
+import "../styles/CommentsList.css";
 
 const CommentsList = ({ comments, fetchComments }) => {
   const prms = useParams();
@@ -18,7 +19,7 @@ const CommentsList = ({ comments, fetchComments }) => {
     }
   );
 
-  return <div>{listOfComments}</div>;
+  return <div className="listOfComments">{listOfComments}</div>;
 };
 
 const mapStateToProps = ({ comments }) => ({ comments: comments });

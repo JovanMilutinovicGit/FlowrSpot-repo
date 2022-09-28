@@ -7,12 +7,11 @@ import { connect } from "react-redux";
 import { login } from "../actions/Index.js";
 
 const Login = ({ setCloseLogin, login }) => {
-  const { register, handleSubmit, getValues } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = (data, e) => {
     e.preventDefault();
     login(data);
-    setCloseLogin(false);
   };
 
   return (

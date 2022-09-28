@@ -35,12 +35,6 @@ const App = () => {
     setOpenLogin(boolean);
   };
 
-  /*Prikazivanje korisnika u desnom gornjem uglu nakon klika na dugme Login*/
-
-  const setisLogin = (boolean) => {
-    setIsLogin(boolean);
-  };
-
   /*Prikazivanje profil modala kada se klikne na sliku*/
 
   const openProfileInfo = (boolean) => {
@@ -62,7 +56,7 @@ const App = () => {
 
         {isOpenLogin && (
           <Modal>
-            <Login setCloseLogin={openLogin} setLogin={setisLogin} />
+            <Login setCloseLogin={openLogin} />
           </Modal>
         )}
 
@@ -89,7 +83,7 @@ const App = () => {
           <Route exact path="/flowers" element={<Flowers />} />
           <Route exact path="/latestSightings" element={<LatestSightings />} />
           <Route exact path="/favorites" element={<Favorites />} />
-          <Route path="/flowerDetail/:id" element={<FlowerDetail />} />
+          <Route exact path="/flowerDetail/:id" element={<FlowerDetail />} />
           <Route exact path="/newSighting" element={<NewSighting />} />
           <Route exact path="/user/:id" element={<User />} />
           <Route

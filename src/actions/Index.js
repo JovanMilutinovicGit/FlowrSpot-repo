@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
+import jwt_decode from "jwt-decode";
 import jsonFlowers from "../apis/jsonFlowers.js";
-
+import history from "../history.js";
 export const fetchFlowers = () => async (dispatch) => {
   const response = await jsonFlowers.get("/flowers");
   dispatch({ type: "FETCH_FLOWERS", payload: response.data.flowers });
@@ -86,7 +87,7 @@ export const getMyInfo = () => async (dispatch) => {
 export const login = (formValues) => async (dispatch) => {
   const response = await jsonFlowers.post("/users/login", formValues);
   localStorage.setItem("token", response.data.auth_token);
-  dispatch({ type: "LOGIN", payload: response.data });
+  dispatch({ type: "LOGIN", payload: response.data.auth_token });
 };
 
 export const init = () => async (dispatch) => {
