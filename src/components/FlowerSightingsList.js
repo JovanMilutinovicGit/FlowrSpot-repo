@@ -17,27 +17,28 @@ const FlowerSightingList = ({
     fetchSightingListCurrentlyFlower(params.id);
   }, []);
 
-  const listOfSightings = sightings.map(
+  const listOfSightings = Object.values(sightings).map(
     ({
-      id,
+      id: id_flower,
       name,
       description,
       picture,
       likes_count,
       comments_count,
-      user: { full_name },
+      user: { full_name, id },
       flower: { profile_picture },
     }) => {
       return (
         <SightingCard
-          key={id}
-          id={id}
+          key={id_flower}
+          id={id_flower}
           name={name}
           description={description}
           picture={picture}
           likes={likes_count}
           comments={comments_count}
           user={full_name}
+          user_id={id}
           flowerPic={profile_picture}
         />
       );
@@ -48,9 +49,9 @@ const FlowerSightingList = ({
   return <div className="flowerSightingList">{listOfSightings}</div>;
 };
 
-const mapStateToProps = ({ currentlySightings }) => {
-  return { sightings: Object.values(currentlySightings) };
-};
+const mapStateToProps = ({ currentlySightings }) => ({
+  sightings: currentlySightings,
+});
 
 export default connect(mapStateToProps, { fetchSightingListCurrentlyFlower })(
   FlowerSightingList

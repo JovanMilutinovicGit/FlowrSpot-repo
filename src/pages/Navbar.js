@@ -1,19 +1,35 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import profileImage from "../assets/profile-holder.png";
 import "../styles/Navbar.css";
 import { useState } from "react";
+import { connect } from "react-redux";
+import { init } from "../actions/Index.js";
+import jwt_decode from "jwt-decode";
+import { getUsername } from "../actions/Index.js";
 
 const Navbar = ({
   openModal,
   openLogin,
-  logged,
   openProfile,
   openSettings,
+  init,
+  token,
+  getUsername,
+  username,
 }) => {
   const [icon, setIcon] = useState(false);
+
+  useEffect(() => {
+    init();
+    if (token) {
+      const decode = jwt_decode(token);
+      getUsername(decode.user_id);
+    }
+  });
 
   const iconFunc = () => {
     if (icon) {
@@ -70,47 +86,51 @@ const Navbar = ({
           >
             Settings
           </Link>
-          {logged ? (
-            <Link
-              to="/user"
-              className="link"
-              onClick={() => {
-                iconFunc(true);
-              }}
-            >
-              John Doe
-            </Link>
-          ) : (
-            <Link
-              to=""
-              className="link"
-              onClick={() => {
-                openLogin(true);
-                iconFunc(true);
-              }}
-            >
-              Login
-            </Link>
+          {token && (
+            <>
+              <Link
+                to=""
+                className="link"
+                onClick={() => {
+                  iconFunc(true);
+                }}
+              >
+                {username}
+              </Link>
+
+              <img
+                src={profileImage}
+                width="30px"
+                onClick={() => {
+                  openProfile(true);
+                  iconFunc(true);
+                }}
+              />
+            </>
           )}
-          {logged ? (
-            <img
-              src={profileImage}
-              width="30px"
-              onClick={() => {
-                openProfile(true);
-                iconFunc(true);
-              }}
-            />
-          ) : (
-            <button
-              id="button"
-              onClick={() => {
-                openModal(true);
-                iconFunc(true);
-              }}
-            >
-              New Account
-            </button>
+          {!token && (
+            <>
+              <Link
+                to=""
+                className="link"
+                onClick={() => {
+                  openLogin(true);
+                  iconFunc(true);
+                }}
+              >
+                Login
+              </Link>
+
+              <button
+                id="button"
+                onClick={() => {
+                  openModal(true);
+                  iconFunc(true);
+                }}
+              >
+                New Account
+              </button>
+            </>
           )}
         </div>
       </div>
@@ -123,4 +143,10 @@ const Navbar = ({
     </div>
   );
 };
-export default Navbar;
+
+const mapStateToProps = ({ init, name }) => ({
+  token: init,
+  username: name,
+});
+
+export default connect(mapStateToProps, { init, getUsername })(Navbar);

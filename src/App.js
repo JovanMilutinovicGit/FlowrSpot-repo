@@ -91,7 +91,7 @@ const App = () => {
           <Route exact path="/favorites" element={<Favorites />} />
           <Route path="/flowerDetail/:id" element={<FlowerDetail />} />
           <Route exact path="/newSighting" element={<NewSighting />} />
-          <Route exact path="/user" element={<User />} />
+          <Route exact path="/user/:id" element={<User />} />
           <Route
             exact
             path="/sightingDetail/:id"

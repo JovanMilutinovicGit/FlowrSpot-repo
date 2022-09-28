@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 import React from "react";
@@ -5,12 +6,13 @@ import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 import { login } from "../actions/Index.js";
 
-const Login = ({ setCloseLogin }) => {
-  const { register, handleSubmit } = useForm();
+const Login = ({ setCloseLogin, login }) => {
+  const { register, handleSubmit, getValues } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
+    e.preventDefault();
     login(data);
-    console.log(data);
+    setCloseLogin(false);
   };
 
   return (

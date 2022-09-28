@@ -1,6 +1,8 @@
 import React from "react";
-import FlowersList from "../components/FlowersList";
+import FavoritesList from "../components/FavoritesList";
 
-const Favorites = () => <FlowersList />;
+const Favorites = () => {
+  return <FavoritesList />;
+};
 
 export default Favorites;

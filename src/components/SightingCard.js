@@ -12,6 +12,7 @@ const SightingCard = ({
   comments,
   user,
   flowerPic,
+  user_id,
 }) => {
   return (
     <div className="SightingCard">
@@ -24,6 +25,7 @@ const SightingCard = ({
       </div>
       <div className="cardDetail">
         <CardDetail
+          key={id}
           id={id}
           name={name}
           desc={description}
@@ -31,6 +33,7 @@ const SightingCard = ({
           likes={likes}
           comments={comments}
           user={user}
+          user_id={user_id}
         />
       </div>
     </div>

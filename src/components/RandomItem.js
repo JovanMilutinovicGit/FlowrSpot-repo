@@ -2,8 +2,10 @@
 import React from "react";
 import "../styles/FlowersItem.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { markFavorite } from "../actions/Index";
 
-const RandomItem = ({ id, pic, name, latinName, sightings }) => (
+const RandomItem = ({ id, pic, name, latinName, sightings, markFavorite }) => (
   <div className="card">
     <div>
       <Link to={`/flowerDetail/${id}`}>
@@ -19,7 +21,12 @@ const RandomItem = ({ id, pic, name, latinName, sightings }) => (
         <p>{sightings} sightings</p>
       </div>
     </div>
-    <div className="favorite">
+    <div
+      className="favorite"
+      onClick={() => {
+        markFavorite(id, true);
+      }}
+    >
       <span className="star">
         <i className="fa fa-star"></i>
       </span>
@@ -27,4 +34,4 @@ const RandomItem = ({ id, pic, name, latinName, sightings }) => (
   </div>
 );
 
-export default RandomItem;
+export default connect(null, { markFavorite })(RandomItem);

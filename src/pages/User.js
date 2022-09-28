@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import "../styles/User.css";
-import CardsList from "../components/CardsList.js";
 import profileImage from "../assets/profile-holder.png";
 import Button from "../components/buttons/Button";
+import UserSightings from "../components/UserSightings.js";
 
 const User = () => (
   <div className="user">
@@ -13,7 +14,7 @@ const User = () => (
             <img src={profileImage} width="50px" />
           </div>
           <div className="username">
-            <span className="span1">Adam Moore</span>
+            <span className="span1">Micheal Barry</span>
             <span className="span2">47 sightings</span>
           </div>
         </div>
@@ -24,7 +25,7 @@ const User = () => (
         </div>
       </div>
       <div className="listCard">
-        <CardsList />
+        <UserSightings />
       </div>
     </div>
   </div>

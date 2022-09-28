@@ -9,9 +9,18 @@ import Button from "../components/buttons/Button.js";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchSighting } from "../actions/Index.js";
+import { useForm } from "react-hook-form";
+import { createComment } from "../actions/Index.js";
 // eslint-disable-next-line react/prop-types
 
-const SightingDetail = ({ sightingDetail, fetchSighting }) => {
+const SightingDetail = ({ sightingDetail, fetchSighting, createComment }) => {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data, e) => {
+    e.preventDefault();
+    createComment(data, prms.id);
+    console.log(data);
+  };
   const prms = useParams();
   useEffect(() => {
     fetchSighting(prms.id);
@@ -69,21 +78,23 @@ const SightingDetail = ({ sightingDetail, fetchSighting }) => {
             <CommentsList params={prms} />
           </div>
         </div>
-        <div className="commentPublish">
+        <form className="commentPublish" onSubmit={handleSubmit(onSubmit)}>
           <div className="commentInput">
-            <input />
+            <input type="text" required {...register("content")} />
           </div>
           <div className="publishBtn">
             <button>Publish comment</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = ({ currentlySightingDetail }) => {
-  return { sightingDetail: currentlySightingDetail };
-};
+const mapStateToProps = ({ currentlySightingDetail }) => ({
+  sightingDetail: currentlySightingDetail,
+});
 
-export default connect(mapStateToProps, { fetchSighting })(SightingDetail);
+export default connect(mapStateToProps, { fetchSighting, createComment })(
+  SightingDetail
+);

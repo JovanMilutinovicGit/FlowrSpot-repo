@@ -9,11 +9,13 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchFlower } from "../actions/Index.js";
 import FlowerSightingsList from "../components/FlowerSightingsList";
+import { markFavorite } from "../actions/Index.js";
 
-const FlowerDetail = ({ flower, fetchFlower }) => {
+const FlowerDetail = ({ flower, fetchFlower, markFavorite }) => {
   const params = useParams();
 
-  const { profile_picture, sightings, name, latin_name, description } = flower;
+  const { profile_picture, sightings, name, latin_name, description, id } =
+    flower;
   useEffect(() => {
     fetchFlower(params.id);
   }, []);
@@ -26,7 +28,12 @@ const FlowerDetail = ({ flower, fetchFlower }) => {
           <img id="imgFlower" src={profile_picture} />
         </div>
         <div className="heroDetailRight">
-          <div className="fav">
+          <div
+            className="fav"
+            onClick={() => {
+              markFavorite(id, true);
+            }}
+          >
             <i className="fa fa-star"></i>
             <span>{sightings} sightings</span>
           </div>
@@ -63,7 +70,8 @@ const FlowerDetail = ({ flower, fetchFlower }) => {
   );
 };
 
-const mapStateToProps = ({ fetchFlower }) => {
-  return { flower: fetchFlower };
-};
-export default connect(mapStateToProps, { fetchFlower })(FlowerDetail);
+const mapStateToProps = ({ fetchFlower }) => ({ flower: fetchFlower });
+
+export default connect(mapStateToProps, { fetchFlower, markFavorite })(
+  FlowerDetail
+);

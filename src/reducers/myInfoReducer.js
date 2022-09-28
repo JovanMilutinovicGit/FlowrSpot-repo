@@ -1,8 +1,6 @@
-// eslint-disable-next-line no-unused-vars
-
 export default (state = {}, action) => {
   switch (action.type) {
-    case "FETCH_SIGHTING_LIST_CURRENTLY_FLOWER":
+    case "GET_MY_INFO":
       return action.payload;
     default:
       return state;
