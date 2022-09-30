@@ -1,4 +1,5 @@
-.FlowersList {
+.FlowersList,
+.resultsList {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;

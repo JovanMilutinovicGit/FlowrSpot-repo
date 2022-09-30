@@ -23,12 +23,13 @@ const Navbar = ({
 }) => {
   const [icon, setIcon] = useState(false);
 
+  if (token) {
+    const decode = jwt_decode(token);
+    getUsername(decode.user_id);
+  }
+
   useEffect(() => {
     init();
-    if (token) {
-      const decode = jwt_decode(token);
-      getUsername(decode.user_id);
-    }
   });
 
   const iconFunc = () => {
