@@ -11,6 +11,7 @@ import usernameReducer from "./usernameReducer";
 import fetchFavorites from "./favoritesReducer";
 import userSightingsReducer from "./userSightingsReducer";
 import myInfoReducer from "./myInfoReducer";
+import resultsSearchReducer from "./resultsSearchReducer";
 
 export default combineReducers({
   flowrs: flowerReducer,
@@ -25,4 +26,5 @@ export default combineReducers({
   favorites: fetchFavorites,
   userSightings: userSightingsReducer,
   myInfo: myInfoReducer,
+  searchResult: resultsSearchReducer,
 });
