@@ -37,6 +37,8 @@ const SightingDetail = ({ sightingDetail, fetchSighting, createComment }) => {
     comments_count,
   } = sightingDetail;
 
+  console.log(sightingDetail);
+
   return (
     <div className="sightingDetail">
       <div className="mapView">
@@ -70,11 +72,11 @@ const SightingDetail = ({ sightingDetail, fetchSighting, createComment }) => {
         <div className="commentSection-2">
           <div className="numberCommentsAndBtn">
             <div className="inner">
-              <span>14 comments</span>
+              <span>{comments_count} comments</span>
               <button>Add Comment</button>
             </div>
           </div>
-          <div>
+          <div className="list-comments">
             <CommentsList params={prms} />
           </div>
         </div>

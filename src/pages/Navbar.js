@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useEffect } from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/old.png";
 import { Link } from "react-router-dom";
 import profileImage from "../assets/profile-holder.png";
 import "../styles/Navbar.css";
@@ -43,9 +43,8 @@ const Navbar = ({
   return (
     <div className="navbar">
       <div className="leftSide">
-        <img src={logo} width="25px" />
-        <Link to="/" className="flowrSpot">
-          FlowrSpot
+        <Link to="/">
+          <img src={logo} width="140px" />
         </Link>
       </div>
       <div className={icon ? "nav-menu active" : "nav-menu"}>

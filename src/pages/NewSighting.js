@@ -59,9 +59,9 @@ const NewSighting = ({ createSighting }) => {
                 />
                 <input
                   type="file"
-                  id="file_upload"
-                  accept="image/*"
                   multiple
+                  accept="image/*"
+                  id="file_upload"
                   {...register("picture")}
                 />
               </div>

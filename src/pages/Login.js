@@ -12,6 +12,7 @@ const Login = ({ setCloseLogin, login }) => {
   const onSubmit = (data, e) => {
     e.preventDefault();
     login(data);
+    setCloseLogin(false);
   };
 
   return (

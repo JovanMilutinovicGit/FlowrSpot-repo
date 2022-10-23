@@ -79,6 +79,9 @@
   margin-top: 101px;
   border-top: 2px solid #e8e9ed;
 }
+.list-comments {
+  width: 100%;
+}
 
 .numberCommentsAndBtn {
   display: flex;
