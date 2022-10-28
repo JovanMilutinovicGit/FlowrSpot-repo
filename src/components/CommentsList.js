@@ -11,7 +11,7 @@ const CommentsList = ({ comments, fetchComments }) => {
 
   useEffect(() => {
     fetchComments(prms.id);
-  });
+  }, [prms.id]);
 
   const listOfComments = Object.values(comments).map(
     ({ content, id, user_full_name }) => {

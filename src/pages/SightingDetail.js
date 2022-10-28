@@ -19,12 +19,11 @@ const SightingDetail = ({ sightingDetail, fetchSighting, createComment }) => {
   const onSubmit = (data, e) => {
     e.preventDefault();
     createComment(data, prms.id);
-    console.log(data);
   };
   const prms = useParams();
   useEffect(() => {
     fetchSighting(prms.id);
-  }, []);
+  }, [prms.id]);
 
   const {
     latitude,
