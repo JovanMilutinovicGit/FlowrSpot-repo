@@ -23,7 +23,7 @@ const SightingDetail = ({ sightingDetail, fetchSighting, createComment }) => {
   const prms = useParams();
   useEffect(() => {
     fetchSighting(prms.id);
-  }, [prms.id]);
+  });
 
   const {
     latitude,
@@ -81,7 +81,7 @@ const SightingDetail = ({ sightingDetail, fetchSighting, createComment }) => {
         </div>
         <form className="commentPublish" onSubmit={handleSubmit(onSubmit)}>
           <div className="commentInput">
-            <input type="text" required {...register("content")} />
+            <textarea required {...register("content")} />
           </div>
           <div className="publishBtn">
             <button>Publish comment</button>
